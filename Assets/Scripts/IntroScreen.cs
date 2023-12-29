@@ -59,7 +59,7 @@ public class IntroScreen : MonoBehaviour
         {
             Type = PopupType.DEFAULT,
             ShowCloseButton = false,
-            BodyText = "This app requires location permissions to work. Please enable location permissions in settings to enable this app to work.",
+            BodyText = "This app requires location permissions to work. The app will now exit, please enable location permissions to use this application.",
             ButtonDatas = new PopupButtonData[]
             {
                 new PopupButtonData()
