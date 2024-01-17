@@ -573,6 +573,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_targetCamera: {fileID: 536708735}
+  m_resetPositionButton: {fileID: 2062158535}
 --- !u!4 &727783166
 Transform:
   m_ObjectHideFlags: 0
