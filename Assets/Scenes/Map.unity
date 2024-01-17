@@ -574,6 +574,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_targetCamera: {fileID: 536708735}
   m_resetPositionButton: {fileID: 2062158535}
+  m_zoomMinSize: 20
+  m_zoomMaxSize: 60
 --- !u!4 &727783166
 Transform:
   m_ObjectHideFlags: 0
