@@ -63,14 +63,14 @@ public class CameraController : MonoBehaviour
             float mouseScrollInput = Input.GetAxis("Mouse ScrollWheel");
             if (mouseScrollInput != 0)
             {
-                HandleZoom(mouseScrollInput * m_zoomScaleFactor);
+                HandleZoom(mouseScrollInput);
             }
         }
     }
 
     private void HandleZoom(float increment)
     {
-        Debug.Log(m_targetCamera.orthographicSize + ", " + increment);
+        increment = increment * m_zoomScaleFactor;
         m_targetCamera.orthographicSize = Mathf.Clamp(m_targetCamera.orthographicSize - increment, m_zoomMinSize, m_zoomMaxSize);
     }
 

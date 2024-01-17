@@ -444,7 +444,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 40
+  orthographic size: 60
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -575,7 +575,8 @@ MonoBehaviour:
   m_targetCamera: {fileID: 536708735}
   m_resetPositionButton: {fileID: 2062158535}
   m_zoomMinSize: 20
-  m_zoomMaxSize: 60
+  m_zoomMaxSize: 100
+  m_zoomScaleFactor: 10
 --- !u!4 &727783166
 Transform:
   m_ObjectHideFlags: 0
