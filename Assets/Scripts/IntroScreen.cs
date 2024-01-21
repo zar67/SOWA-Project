@@ -38,6 +38,7 @@ public class IntroScreen : MonoBehaviour
 #endif
     }
 
+#if UNITY_ANDROID
     private void RequestLocationPermission()
     {
         var callbacks = new PermissionCallbacks();
@@ -71,6 +72,7 @@ public class IntroScreen : MonoBehaviour
             }
         });
     }
+#endif
 
     private void MoveToMap()
     {
