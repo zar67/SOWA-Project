@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "240739690995",
+    "firebase_url": "https://clean-up-b291d-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "clean-up-b291d",
+    "storage_bucket": "clean-up-b291d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:240739690995:android:9620c03c02222f00d54a86",
+        "android_client_info": {
+          "package_name": "com.ZoeRowbotham.CleanUp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBaIn9GxvLV-TtvJ6hCz1Nt9TMtCGGxhoA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
