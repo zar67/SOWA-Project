@@ -9,11 +9,11 @@ public class BootstrapperDependancy : MonoBehaviour
         private set;
     } 
 
-    public event Action OnDependancyComplete;
+    public event Action<BootstrapperDependancy> OnDependancyComplete;
 
     public void SetComplete()
     {
         IsComplete = true;
-        OnDependancyComplete?.Invoke();
+        OnDependancyComplete?.Invoke(this);
     }
 }
