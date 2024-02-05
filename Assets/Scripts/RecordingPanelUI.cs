@@ -1,8 +1,7 @@
+using DG.Tweening;
 using Extensions;
 using UnityEngine;
 using UnityEngine.UI;
-using DG.Tweening;
-using System;
 
 public class RecordingPanelUI : MonoBehaviour
 {
@@ -48,7 +47,7 @@ public class RecordingPanelUI : MonoBehaviour
 
     private void RecordLitterAndClose()
     {
-        // Create litter data and send to database.
+        LitterRecordingManager.Instance.RecordLitter();
         ClosePanel();
     }
 

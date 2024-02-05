@@ -2,7 +2,6 @@ using Firebase;
 using Firebase.Analytics;
 using Firebase.Crashlytics;
 using Firebase.Extensions;
-using System;
 using UnityEngine;
 
 public class FirebaseManager : BootstrapperDependancy
