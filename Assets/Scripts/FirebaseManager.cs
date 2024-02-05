@@ -1,6 +1,8 @@
 using Firebase;
 using Firebase.Analytics;
 using Firebase.Crashlytics;
+using Firebase.Extensions;
+using System;
 using UnityEngine;
 
 public class FirebaseManager : BootstrapperDependancy
@@ -8,7 +10,7 @@ public class FirebaseManager : BootstrapperDependancy
     private void Start()
     {
         // Initialize Firebase
-        FirebaseApp.CheckAndFixDependenciesAsync().ContinueWith(task => {
+        FirebaseApp.CheckAndFixDependenciesAsync().ContinueWithOnMainThread(task => {
             DependencyStatus dependencyStatus = task.Result;
             if (dependencyStatus == DependencyStatus.Available)
             {
@@ -20,6 +22,8 @@ public class FirebaseManager : BootstrapperDependancy
 
                 FirebaseAnalytics.SetAnalyticsCollectionEnabled(true);
                 SetComplete();
+
+                Debug.Log("Firebase initialized.");
             }
             else
             {
