@@ -1,3 +1,4 @@
+using Mapbox.Examples;
 using Mapbox.Unity.Location;
 using System;
 using System.Collections.Generic;
@@ -8,6 +9,8 @@ public class LitterRecordingManager : SingletonMonoBehaviour<LitterRecordingMana
     public static event Action OnRecordedLitterUpdated;
 
     public const string LITTER_KEY = "LITTER_DATA";
+
+    [SerializeField] private SpawnOnMap m_spawnOnMap;
 
     private AbstractLocationProvider m_locationProvider = null;
 
