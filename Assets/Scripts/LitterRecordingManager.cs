@@ -38,7 +38,7 @@ public class LitterRecordingManager : SingletonMonoBehaviour<LitterRecordingMana
         var data = new LitterData()
         {
             Timestamp = DateTime.UtcNow.ToString(),
-            Location = currentLocation.LatitudeLongitude.ToString()
+            Location = $"{currentLocation.LatitudeLongitude.x},{currentLocation.LatitudeLongitude.y}"
         };
 
         FirebaseDatabaseManager.Instance.AppendData(LITTER_KEY, data);
