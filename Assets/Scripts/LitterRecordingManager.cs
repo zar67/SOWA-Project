@@ -16,7 +16,9 @@ public class LitterRecordingManager : SingletonMonoBehaviour<LitterRecordingMana
 
     private AbstractLocationProvider m_locationProvider = null;
 
-    public List<LitterData> StoredLitterData { get; private set; }  = new List<LitterData>();
+    public List<LitterData> FullLitterData { get; private set; } = new List<LitterData>();
+
+    public List<LitterData> CondensedLitterData { get; private set; }  = new List<LitterData>();
 
     private void OnEnable()
     {
@@ -51,7 +53,8 @@ public class LitterRecordingManager : SingletonMonoBehaviour<LitterRecordingMana
     private void HandleLitterDatabaseUpdated(object data, Firebase.Database.ValueChangedEventArgs args)
     {
         var dataDict = args.Snapshot.Value as Dictionary<string, object>;
-        StoredLitterData = new List<LitterData>();
+        FullLitterData = new List<LitterData>();
+        CondensedLitterData = new List<LitterData>();
 
         var distanceCheckList = new List<object>(dataDict.Values);
 
@@ -59,6 +62,8 @@ public class LitterRecordingManager : SingletonMonoBehaviour<LitterRecordingMana
         {
             LitterData litterData = JsonUtility.FromJson<LitterData>(distanceCheckList[i] as string);
             Vector2d location = Conversions.StringToLatLon(litterData.Location);
+
+            FullLitterData.Add(litterData);
 
             bool merged = false;
             if (i < distanceCheckList.Count - 1)
@@ -77,7 +82,7 @@ public class LitterRecordingManager : SingletonMonoBehaviour<LitterRecordingMana
 
             if (!merged)
             {
-                StoredLitterData.Add(litterData);
+                CondensedLitterData.Add(litterData);
             }
         }
     }
