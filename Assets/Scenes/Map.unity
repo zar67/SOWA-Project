@@ -924,7 +924,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1579502648}
   - component: {fileID: 1579502647}
-  - component: {fileID: 1579502649}
   m_Layer: 0
   m_Name: LitterObjectManager
   m_TagString: Untagged
@@ -963,23 +962,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1579502649
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1579502646}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dcf32ea2cc0514b569329f6b6b68f9b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _map: {fileID: 1276790529}
-  _locationStrings:
-  - 48.859489, 2.32000
-  _spawnScale: 100
-  _markerPrefab: {fileID: 4904157705312679314, guid: f2df884199843a341a794e2b2e31dec1, type: 3}
 --- !u!224 &1944778657 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7606508138002935234, guid: 55f6d8e2c02c5e64098fa719e4f3f03b, type: 3}
@@ -1131,7 +1113,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2133338829}
   - component: {fileID: 2133338828}
-  - component: {fileID: 2133338830}
   m_Layer: 0
   m_Name: LitterRecordingManager
   m_TagString: Untagged
@@ -1151,7 +1132,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 126f8c3ba5b552f4db0af5513b539e2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_spawnOnMap: {fileID: 0}
+  m_map: {fileID: 1276790529}
+  m_zoomMergeDistanceMappings:
+  - MaxZoom: 5
+    MergeDistance: 0.1
+  - MaxZoom: 10
+    MergeDistance: 0.01
+  - MaxZoom: 15
+    MergeDistance: 0.001
+  - MaxZoom: 21
+    MergeDistance: 0.0001
 --- !u!4 &2133338829
 Transform:
   m_ObjectHideFlags: 0
@@ -1167,22 +1157,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2133338830
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2133338827}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dcf32ea2cc0514b569329f6b6b68f9b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _map: {fileID: 1276790529}
-  _locationStrings: []
-  _spawnScale: 1
-  _markerPrefab: {fileID: 4904157705312679314, guid: f2df884199843a341a794e2b2e31dec1, type: 3}
 --- !u!1 &2147256407
 GameObject:
   m_ObjectHideFlags: 0
@@ -1300,11 +1274,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 885137051419793243, guid: 55f6d8e2c02c5e64098fa719e4f3f03b, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 1030
       objectReference: {fileID: 0}
     - target: {fileID: 885137051419793243, guid: 55f6d8e2c02c5e64098fa719e4f3f03b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 515
       objectReference: {fileID: 0}
     - target: {fileID: 885137051419793243, guid: 55f6d8e2c02c5e64098fa719e4f3f03b, type: 3}
       propertyPath: m_AnchoredPosition.y
