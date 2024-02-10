@@ -15,7 +15,7 @@ public class LitterObjectManager : MonoBehaviour
 
     private void Update()
     {
-        List<LitterData> cachedLitter = LitterRecordingManager.Instance.StoredLitterData;
+        List<LitterData> cachedLitter = LitterRecordingManager.Instance.CondensedLitterData;
 
         int objectCount = 0;
         for (int i = 0; i < cachedLitter.Count; i++)
