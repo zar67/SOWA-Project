@@ -1,5 +1,7 @@
 using Mapbox.Examples;
 using Mapbox.Unity.Location;
+using Mapbox.Unity.Utilities;
+using Mapbox.Utils;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,7 +12,7 @@ public class LitterRecordingManager : SingletonMonoBehaviour<LitterRecordingMana
 
     public const string LITTER_KEY = "LITTER_DATA";
 
-    [SerializeField] private SpawnOnMap m_spawnOnMap;
+    [SerializeField] private float m_mergeDistance = 0.0001f;
 
     private AbstractLocationProvider m_locationProvider = null;
 
@@ -19,6 +21,8 @@ public class LitterRecordingManager : SingletonMonoBehaviour<LitterRecordingMana
     private void OnEnable()
     {
         FirebaseDatabaseManager.Instance.AddValueChangedListener(LITTER_KEY, HandleLitterDatabaseUpdated);
+
+        // Clear old litter data here?
     }
 
     private void OnDisable()
@@ -48,9 +52,33 @@ public class LitterRecordingManager : SingletonMonoBehaviour<LitterRecordingMana
     {
         var dataDict = args.Snapshot.Value as Dictionary<string, object>;
         StoredLitterData = new List<LitterData>();
-        foreach (object litterData in dataDict.Values)
+
+        var distanceCheckList = new List<object>(dataDict.Values);
+
+        for (int i = 0; i < distanceCheckList.Count; i++)
         {
-            StoredLitterData.Add(JsonUtility.FromJson<LitterData>(litterData as string));
+            LitterData litterData = JsonUtility.FromJson<LitterData>(distanceCheckList[i] as string);
+            Vector2d location = Conversions.StringToLatLon(litterData.Location);
+
+            bool merged = false;
+            if (i < distanceCheckList.Count - 1)
+            {
+                for (int j = i + 1; j < distanceCheckList.Count; j++)
+                {
+                    LitterData compareLitterData = JsonUtility.FromJson<LitterData>(distanceCheckList[j] as string);
+                    Vector2d compareLocation = Conversions.StringToLatLon(compareLitterData.Location);
+                    if (Vector2d.Distance(location, compareLocation) < m_mergeDistance)
+                    {
+                        merged = true;
+                        distanceCheckList[j] = JsonUtility.ToJson(litterData.Merge(compareLitterData));
+                    }
+                }
+            }
+
+            if (!merged)
+            {
+                StoredLitterData.Add(litterData);
+            }
         }
     }
 }
