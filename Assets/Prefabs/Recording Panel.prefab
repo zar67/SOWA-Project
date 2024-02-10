@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 6082910467470036056}
   - component: {fileID: 8819048860102712005}
   - component: {fileID: 99914937057728547}
-  - component: {fileID: 8062841650927929714}
   m_Layer: 5
   m_Name: Recording Panel
   m_TagString: Untagged
@@ -104,27 +103,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 0
   m_VerticalFit: 2
---- !u!95 &8062841650927929714
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 490048127343689372}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0ec27cabf37661048bf3cac220e5b361, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &683119605183973570
 GameObject:
   m_ObjectHideFlags: 0
