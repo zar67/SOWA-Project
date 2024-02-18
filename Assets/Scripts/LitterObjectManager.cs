@@ -11,7 +11,7 @@ public class LitterObjectManager : MonoBehaviour
     [SerializeField] private GameObject m_litterObjectPrefab;
 
     [SerializeField] private float m_maxDistance = 1000f;
-    [SerializeField] private float m_MergedAmountScaleFactor = 0.5f;
+    [SerializeField] private float m_mergedAmountScaleFactor = 0.5f;
 
     private List<GameObject> m_litterObjects = new List<GameObject>();
 
@@ -37,7 +37,7 @@ public class LitterObjectManager : MonoBehaviour
 
             m_litterObjects[objectCount].SetActive(true);
             m_litterObjects[objectCount].transform.localPosition = worldPosition;
-            m_litterObjects[objectCount].transform.localScale = Vector3.one + (Vector3.one * (cachedLitter[i].MergedAmount - 1) * m_MergedAmountScaleFactor);
+            m_litterObjects[objectCount].transform.localScale = Vector3.one + (Vector3.one * (cachedLitter[i].MergedAmount - 1) * m_mergedAmountScaleFactor);
 
             objectCount++;
         }

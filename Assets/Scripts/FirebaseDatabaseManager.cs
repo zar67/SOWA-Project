@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class FirebaseDatabaseManager : SingletonMonoBehaviour<FirebaseDatabaseManager>
 {
-    [SerializeField] private FirebaseManager m_firebaseManager;
-
     private FirebaseDatabase m_firebaseDatabase;
 
     protected override void Awake()
