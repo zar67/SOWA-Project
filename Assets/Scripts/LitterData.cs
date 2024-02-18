@@ -6,6 +6,7 @@ public class LitterData
 {
     public string Timestamp;
     public string Location;
+    [NonSerialized] public int MergedAmount = 1;
 
     public LitterData Merge(LitterData other)
     {
@@ -13,6 +14,8 @@ public class LitterData
         {
             Timestamp = other.Timestamp
         };
+
+        newData.MergedAmount = MergedAmount + other.MergedAmount;
 
         Vector2d thisLocation = Conversions.StringToLatLon(Location);
         Vector2d otherLocation = Conversions.StringToLatLon(other.Location);

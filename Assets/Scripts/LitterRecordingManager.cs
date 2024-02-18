@@ -92,27 +92,9 @@ public class LitterRecordingManager : SingletonMonoBehaviour<LitterRecordingMana
             Vector2d location = Conversions.StringToLatLon(litterData.Location);
 
             FullLitterData.Add(litterData);
-
-            bool merged = false;
-            if (i < distanceCheckList.Count - 1)
-            {
-                for (int j = i + 1; j < distanceCheckList.Count; j++)
-                {
-                    LitterData compareLitterData = JsonUtility.FromJson<LitterData>(distanceCheckList[j] as string);
-                    Vector2d compareLocation = Conversions.StringToLatLon(compareLitterData.Location);
-                    if (Vector2d.Distance(location, compareLocation) < m_currentMergeDistance)
-                    {
-                        merged = true;
-                        distanceCheckList[j] = JsonUtility.ToJson(litterData.Merge(compareLitterData));
-                    }
-                }
-            }
-
-            if (!merged)
-            {
-                CondensedLitterData.Add(litterData);
-            }
         }
+
+        UpdateCondensedLitterList();
     }
 
     private void UpdateCondensedLitterList()
@@ -123,7 +105,6 @@ public class LitterRecordingManager : SingletonMonoBehaviour<LitterRecordingMana
         for (int i = 0; i < distanceCheckList.Count; i++)
         {
             Vector2d location = Conversions.StringToLatLon(distanceCheckList[i].Location);
-
             bool merged = false;
             if (i < distanceCheckList.Count - 1)
             {
@@ -134,6 +115,7 @@ public class LitterRecordingManager : SingletonMonoBehaviour<LitterRecordingMana
                     {
                         merged = true;
                         distanceCheckList[j] = distanceCheckList[i].Merge(distanceCheckList[j]);
+                        break;
                     }
                 }
             }
