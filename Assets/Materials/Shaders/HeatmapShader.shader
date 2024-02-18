@@ -1,4 +1,4 @@
-﻿﻿Shader "Unlit/HeatmapShader"
+Shader "Unlit/HeatmapShader"
 {
     Properties
     {
@@ -19,16 +19,16 @@
     }
         SubShader
       {
-        Tags { "RenderType" = "Opaque" }
-        LOD 100
+        Tags { "Queue" = "Transparent" "RenderType" = "Transparent" "IgnoreProjector" = "True" }
 
         Pass
         {
+          ZWrite Off
+          Blend SrcAlpha OneMinusSrcAlpha
           AlphaToMask On
           CGPROGRAM
           #pragma vertex vert
           #pragma fragment frag
-          #pragma multi_compile_fog
 
           #include "UnityCG.cginc"
 
