@@ -7,6 +7,7 @@ using UnityEngine;
 
 public class LitterHeatmapManager : MonoBehaviour
 {
+    private const int MAX_HIT_POINTS = 256;
     private readonly Vector3 m_mapNormal = Vector3.down;
 
     [SerializeField] private AbstractMap m_map;
@@ -27,7 +28,7 @@ public class LitterHeatmapManager : MonoBehaviour
     {
         List<LitterData> cachedLitter = LitterRecordingManager.Instance.CondensedLitterData;
 
-        m_points = new float[3 * 32];
+        m_points = new float[3 * MAX_HIT_POINTS];
         int hitPointCount = 0;
         for (int i = 0; i < cachedLitter.Count; i++)
         {
@@ -42,13 +43,15 @@ public class LitterHeatmapManager : MonoBehaviour
             var ray = new Ray(worldPosition - m_mapNormal, m_mapNormal);
             if (Physics.Raycast(ray, out RaycastHit hit, 2f, m_heatmapLayerMask))
             {
-                int index = hitPointCount * 3;
-                m_points[index] = (hit.textureCoord.x * 4) - 2;
-                m_points[index + 1] = (hit.textureCoord.y * 4) - 2;
-                m_points[index + 2] = m_map.Zoom * 0.1f;
+                if (hitPointCount < MAX_HIT_POINTS)
+                {
+                    int index = hitPointCount * 3;
+                    m_points[index] = hit.textureCoord.x;
+                    m_points[index + 1] = hit.textureCoord.y;
+                    m_points[index + 2] = m_map.Zoom * 0.01f * cachedLitter[i].MergedAmount;
 
-                hitPointCount++;
-                hitPointCount %= 32;
+                    hitPointCount++;
+                }
             }
         }
 
