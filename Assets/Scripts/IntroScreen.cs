@@ -8,13 +8,21 @@ using UnityEngine.Android;
 public class IntroScreen : MonoBehaviour
 {
     [SerializeField] private string m_mapSceneName;
+    [SerializeField] private GameObject m_tapToContinueHolder;
+
+    private bool m_locationPermissionEnabled;
 
     private void Awake()
     {
 #if UNITY_ANDROID
+
+        m_locationPermissionEnabled = false;
+        m_tapToContinueHolder.SetActive(false);
+
         if (Permission.HasUserAuthorizedPermission(Permission.FineLocation))
         {
-            MoveToMap();
+            m_locationPermissionEnabled = true;
+            m_tapToContinueHolder.SetActive(true);
             return;
         }
 
@@ -34,8 +42,16 @@ public class IntroScreen : MonoBehaviour
             }
         });
 #else
-        MoveToMap();
+        m_locationPermissionEnabled = true;
 #endif
+    }
+
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(0) && !PopupManager.Instance.HasOpenPopup() && m_locationPermissionEnabled)
+        {
+            MoveToMap();
+        }
     }
 
 #if UNITY_ANDROID
@@ -51,7 +67,8 @@ public class IntroScreen : MonoBehaviour
 
     private void PermissionGranted(string _)
     {
-        MoveToMap();
+        m_locationPermissionEnabled = true;
+        m_tapToContinueHolder.SetActive(true);
     }
 
     private void PermissionDenied(string _)

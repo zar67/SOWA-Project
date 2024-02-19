@@ -39,6 +39,19 @@ public class PopupManager : SingletonMonoBehaviour<PopupManager>
     private Dictionary<PopupType, List<Popup>> m_openPopups;
     private Dictionary<PopupType, List<Popup>> m_closedPopups;
 
+    public bool HasOpenPopup()
+    {
+        foreach (List<Popup> openPopups in m_openPopups.Values)
+        {
+            if (openPopups.Count > 0)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     public void OpenPopup(PopupData data)
     {
         if (!m_closedPopups.ContainsKey(data.Type))
