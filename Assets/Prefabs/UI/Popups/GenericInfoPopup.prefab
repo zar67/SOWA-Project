@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1397898422021979629}
   - component: {fileID: 4098678501164339310}
   m_Layer: 5
-  m_Name: DefaultPopup
+  m_Name: GenericInfoPopup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -50,7 +50,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2612546310143154565}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: efa94445542eaf3408d8030f9d6635ab, type: 3}
+  m_Script: {fileID: 11500000, guid: b02ed3f91e14682448bf7d5c75154c49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_animator: {fileID: 4098678501164339310}

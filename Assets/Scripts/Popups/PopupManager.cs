@@ -7,41 +7,22 @@ using UnityEngine.Events;
 
 public enum PopupType
 {
-    DEFAULT
-}
-
-[Serializable]
-public struct PopupData
-{
-    public PopupType Type;
-
-    public bool ShowCloseButton;
-    public UnityAction CloseButtonAction;
-
-    public string BodyText;
-
-    public PopupButtonData[] ButtonDatas;
-}
-
-[Serializable]
-public struct PopupButtonData
-{
-    public string Text;
-    public UnityAction Action;
-    public bool CloseOnClick;
+    NONE,
+    GENERIC_INFO,
+    LITTER_RECORDING
 }
 
 public class PopupManager : SingletonMonoBehaviour<PopupManager>
 {
-    [SerializeField] private Popup[] m_popupPrefabs;
-    private Dictionary<PopupType, Popup> m_popupPrefabsByType;
+    [SerializeField] private BasePopup[] m_popupPrefabs;
+    private Dictionary<PopupType, BasePopup> m_popupPrefabsByType;
 
-    private Dictionary<PopupType, List<Popup>> m_openPopups;
-    private Dictionary<PopupType, List<Popup>> m_closedPopups;
+    private Dictionary<PopupType, List<BasePopup>> m_openPopups;
+    private Dictionary<PopupType, List<BasePopup>> m_closedPopups;
 
     public bool HasOpenPopup()
     {
-        foreach (List<Popup> openPopups in m_openPopups.Values)
+        foreach (List<BasePopup> openPopups in m_openPopups.Values)
         {
             if (openPopups.Count > 0)
             {
@@ -52,11 +33,11 @@ public class PopupManager : SingletonMonoBehaviour<PopupManager>
         return false;
     }
 
-    public void OpenPopup(PopupData data)
+    public void OpenPopup(BasePopupData data)
     {
         if (!m_closedPopups.ContainsKey(data.Type))
         {
-            m_closedPopups.Add(data.Type, new List<Popup>());
+            m_closedPopups.Add(data.Type, new List<BasePopup>());
         }
 
         if (m_closedPopups[data.Type].Count == 0)
@@ -69,11 +50,11 @@ public class PopupManager : SingletonMonoBehaviour<PopupManager>
             }
         }
 
-        Popup popupToOpen = m_closedPopups[data.Type][0];
+        BasePopup popupToOpen = m_closedPopups[data.Type][0];
 
         if (!m_openPopups.ContainsKey(data.Type))
         {
-            m_openPopups.Add(data.Type, new List<Popup>());
+            m_openPopups.Add(data.Type, new List<BasePopup>());
         }
 
         m_openPopups[data.Type].Add(popupToOpen);
@@ -90,16 +71,16 @@ public class PopupManager : SingletonMonoBehaviour<PopupManager>
         // Clear any leftover popups from editing.
         gameObject.DestroyChildren();
 
-        m_openPopups = new Dictionary<PopupType, List<Popup>>();
-        m_closedPopups = new Dictionary<PopupType, List<Popup>>();
+        m_openPopups = new Dictionary<PopupType, List<BasePopup>>();
+        m_closedPopups = new Dictionary<PopupType, List<BasePopup>>();
 
         OnValidate();
     }
 
     private void OnValidate()
     {
-        m_popupPrefabsByType = new Dictionary<PopupType, Popup>();
-        foreach (Popup popup in m_popupPrefabs)
+        m_popupPrefabsByType = new Dictionary<PopupType, BasePopup>();
+        foreach (BasePopup popup in m_popupPrefabs)
         {
             if (popup == null)
             {
@@ -121,11 +102,11 @@ public class PopupManager : SingletonMonoBehaviour<PopupManager>
             return false;
         }
 
-        Popup newPopup = Instantiate(m_popupPrefabsByType[type], transform);
+        BasePopup newPopup = Instantiate(m_popupPrefabsByType[type], transform);
 
         if (!m_closedPopups.ContainsKey(type))
         {
-            m_closedPopups.Add(type, new List<Popup>());
+            m_closedPopups.Add(type, new List<BasePopup>());
         }
 
         m_closedPopups[type].Add(newPopup);
