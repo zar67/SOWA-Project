@@ -62,6 +62,7 @@ public class BasePopup : MonoBehaviour
 
     public virtual void Open()
     {
+        gameObject.SetActive(true);
         m_animator.SetTrigger(m_openTrigger);
 
         CurrentState = PopupState.OPENING;
@@ -88,6 +89,8 @@ public class BasePopup : MonoBehaviour
 
     protected virtual void Cleanup()
     {
+        gameObject.SetActive(false);
+
         m_closeButtonHolder.SetActive(false);
         m_closeButton.onClick.RemoveAllListeners();
 

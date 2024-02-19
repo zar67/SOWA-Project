@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class MapScreen : MonoBehaviour
 {
     [SerializeField] private Button m_recordLitterButton;
-    [SerializeField] private LitterRecordingPopup m_recordingPanel;
 
     private void OnEnable()
     {
