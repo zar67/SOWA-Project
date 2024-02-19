@@ -8,6 +8,7 @@ using UnityEngine.Android;
 public class IntroScreen : MonoBehaviour
 {
     [SerializeField] private string m_mapSceneName;
+    [SerializeField] private GameObject m_tapToContinueHolder;
 
     private bool m_locationPermissionEnabled;
 
@@ -16,10 +17,12 @@ public class IntroScreen : MonoBehaviour
 #if UNITY_ANDROID
 
         m_locationPermissionEnabled = false;
+        m_tapToContinueHolder.SetActive(false);
 
         if (Permission.HasUserAuthorizedPermission(Permission.FineLocation))
         {
             m_locationPermissionEnabled = true;
+            m_tapToContinueHolder.SetActive(true);
             return;
         }
 
@@ -65,6 +68,7 @@ public class IntroScreen : MonoBehaviour
     private void PermissionGranted(string _)
     {
         m_locationPermissionEnabled = true;
+        m_tapToContinueHolder.SetActive(true);
     }
 
     private void PermissionDenied(string _)

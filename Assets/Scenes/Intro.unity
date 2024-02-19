@@ -375,6 +375,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_mapSceneName: Map
+  m_tapToContinueHolder: {fileID: 2071920655}
 --- !u!1 &349497670
 GameObject:
   m_ObjectHideFlags: 0
