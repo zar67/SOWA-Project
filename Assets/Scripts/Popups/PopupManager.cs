@@ -74,6 +74,8 @@ public class PopupManager : SingletonMonoBehaviour<PopupManager>
         m_openPopups = new Dictionary<PopupType, List<BasePopup>>();
         m_closedPopups = new Dictionary<PopupType, List<BasePopup>>();
 
+        BasePopup.OnPopupClose += HandlePopupClosed;
+
         OnValidate();
     }
 
@@ -113,4 +115,22 @@ public class PopupManager : SingletonMonoBehaviour<PopupManager>
 
         return true;
     }
+
+    private void HandlePopupClosed(BasePopup popup)
+    {
+        if (m_openPopups.ContainsKey(popup.Type))
+        {
+            if (m_openPopups[popup.Type].Contains(popup))
+            {
+                m_openPopups[popup.Type].Remove(popup);
+            }
+        }
+
+        if (!m_closedPopups.ContainsKey(popup.Type))
+        {
+            m_closedPopups.Add(popup.Type, new List<BasePopup>());
+        }
+
+        m_closedPopups[popup.Type].Add(popup);
+    }   
 }

@@ -22,6 +22,11 @@ public class BasePopup : MonoBehaviour
         CLOSING,
     }
 
+    public static event Action<BasePopup> OnPopupOpen;
+    public static event Action<BasePopup> OnPopupOpenComplete;
+    public static Action<BasePopup> OnPopupClose;
+    public static Action<BasePopup> OnPopupCloseComplete;
+
     [Header("Animation References")]
     [SerializeField] protected Animator m_animator;
     [SerializeField] protected string m_openTrigger = "Open";
@@ -66,6 +71,7 @@ public class BasePopup : MonoBehaviour
         m_animator.SetTrigger(m_openTrigger);
 
         CurrentState = PopupState.OPENING;
+        OnPopupOpen?.Invoke(this);
     }
 
     public virtual void Close()
@@ -73,18 +79,21 @@ public class BasePopup : MonoBehaviour
         m_animator.SetTrigger(m_closeTrigger);
 
         CurrentState = PopupState.CLOSING;
+        OnPopupClose?.Invoke(this);
     }
 
     // Called by the animator when the open animation is complete.
     protected virtual void OnOpenComplete()
     {
         CurrentState = PopupState.OPEN;
+        OnPopupOpenComplete?.Invoke(this);
     }
 
     // Called by the animator when the close animation is complete.
     protected virtual void OnCloseComplete()
     {
         Cleanup();
+        OnPopupCloseComplete?.Invoke(this);
     }
 
     protected virtual void Cleanup()
