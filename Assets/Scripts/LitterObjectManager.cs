@@ -13,7 +13,13 @@ public class LitterObjectManager : MonoBehaviour
     [SerializeField] private float m_maxDistance = 1000f;
     [SerializeField] private float m_mergedAmountScaleFactor = 0.5f;
 
+    private Camera m_uiCamera;
     private List<GameObject> m_litterObjects = new List<GameObject>();
+
+    private void Awake()
+    {
+        m_uiCamera = GameObject.FindGameObjectWithTag("UICamera").GetComponent<Camera>();
+    }
 
     private void Update()
     {
@@ -58,6 +64,10 @@ public class LitterObjectManager : MonoBehaviour
         GameObject newLitterObject = Instantiate(m_litterObjectPrefab, m_litterObjectHolder);
         newLitterObject.transform.localPosition = Vector3.zero;
         newLitterObject.transform.localScale = Vector3.one;
+
+        Canvas canvas = newLitterObject.GetComponentInChildren<Canvas>();
+        canvas.worldCamera = m_uiCamera;
+
         m_litterObjects.Add(newLitterObject);
     }
 }
