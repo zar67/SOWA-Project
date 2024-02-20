@@ -26,9 +26,9 @@ public class IntroScreen : MonoBehaviour
             return;
         }
 
-        PopupManager.Instance.OpenPopup(new PopupData()
+        PopupManager.Instance.OpenPopup(new GenericInfoPopupData()
         {
-            Type = PopupType.DEFAULT,
+            Type = PopupType.GENERIC_INFO,
             ShowCloseButton = false,
             BodyText = "This app requires location permissions to work, please allow location permissions when prompted.",
             ButtonDatas = new PopupButtonData[]
@@ -73,9 +73,9 @@ public class IntroScreen : MonoBehaviour
 
     private void PermissionDenied(string _)
     {
-        PopupManager.Instance.OpenPopup(new PopupData()
+        PopupManager.Instance.OpenPopup(new GenericInfoPopupData()
         {
-            Type = PopupType.DEFAULT,
+            Type = PopupType.GENERIC_INFO,
             ShowCloseButton = false,
             BodyText = "This app requires location permissions to work. The app will now exit, please enable location permissions to use this application.",
             ButtonDatas = new PopupButtonData[]

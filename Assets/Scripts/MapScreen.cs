@@ -7,13 +7,10 @@ using UnityEngine.UI;
 public class MapScreen : MonoBehaviour
 {
     [SerializeField] private Button m_recordLitterButton;
-    [SerializeField] private RecordingPanelUI m_recordingPanel;
 
     private void OnEnable()
     {
         m_recordLitterButton.onClick.AddListener(OpenRecordingPanel);
-
-        m_recordingPanel.ClosePanel();
     }
 
     private void OnDisable()
@@ -23,6 +20,10 @@ public class MapScreen : MonoBehaviour
 
     private void OpenRecordingPanel()
     {
-        m_recordingPanel.OpenPanel();
+        PopupManager.Instance.OpenPopup(new BasePopupData()
+        {
+            Type = PopupType.LITTER_RECORDING,
+            ShowCloseButton = true
+        });
     }
 }
