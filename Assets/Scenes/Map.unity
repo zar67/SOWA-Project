@@ -729,7 +729,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1110075279235379495, guid: ba5fbf167c80c0f45847e8678a915a9f, type: 3}
       propertyPath: m_SizeDelta.y
-      value: -50
+      value: -70
       objectReference: {fileID: 0}
     - target: {fileID: 1110075279235379495, guid: ba5fbf167c80c0f45847e8678a915a9f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -745,12 +745,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1110075279235379495, guid: ba5fbf167c80c0f45847e8678a915a9f, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1110075279235379495, guid: ba5fbf167c80c0f45847e8678a915a9f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 45
       objectReference: {fileID: 0}
+    - target: {fileID: 2188720077248084630, guid: ba5fbf167c80c0f45847e8678a915a9f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e9da307ab3d6ea549adcf9191fb7ec7f, type: 3}
     - target: {fileID: 2769108671174002953, guid: ba5fbf167c80c0f45847e8678a915a9f, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -1135,7 +1139,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1110075279235379495, guid: ba5fbf167c80c0f45847e8678a915a9f, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 20
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1110075279235379495, guid: ba5fbf167c80c0f45847e8678a915a9f, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -1143,12 +1147,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1110075279235379495, guid: ba5fbf167c80c0f45847e8678a915a9f, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 7.5
       objectReference: {fileID: 0}
     - target: {fileID: 1780403553471698264, guid: ba5fbf167c80c0f45847e8678a915a9f, type: 3}
       propertyPath: m_map
       value: 
       objectReference: {fileID: 1276790529}
+    - target: {fileID: 2188720077248084630, guid: ba5fbf167c80c0f45847e8678a915a9f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 4ba11e1feca37d74fa31496571393c59, type: 3}
     - target: {fileID: 2769108671174002953, guid: ba5fbf167c80c0f45847e8678a915a9f, type: 3}
       propertyPath: m_Sprite
       value: 
