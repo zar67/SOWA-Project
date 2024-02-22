@@ -13,16 +13,34 @@ public class LitterObjectManager : MonoBehaviour
     [SerializeField] private float m_maxDistance = 1000f;
     [SerializeField] private float m_mergedAmountScaleFactor = 0.5f;
 
+    private bool m_locationPinsEnabled = true;
+
     private Camera m_uiCamera;
     private List<GameObject> m_litterObjects = new List<GameObject>();
 
     private void Awake()
     {
         m_uiCamera = GameObject.FindGameObjectWithTag("UICamera").GetComponent<Camera>();
+        m_locationPinsEnabled = PlayerPrefs.GetInt(PrefsKeys.LOCATION_PINS_ENABLED_KEY, 1) == 1;
+    }
+
+    private void OnEnable()
+    {
+        SettingsPopup.OnLocationPinsEnabledChanged += OnLocationPinsEnabledChanged;
+    }
+
+    private void OnDisable()
+    {
+        SettingsPopup.OnLocationPinsEnabledChanged -= OnLocationPinsEnabledChanged;
     }
 
     private void Update()
     {
+        if (!m_locationPinsEnabled)
+        {
+            return;
+        }
+
         List<LitterData> cachedLitter = LitterRecordingManager.Instance.CondensedLitterData;
 
         int objectCount = 0;
@@ -51,6 +69,19 @@ public class LitterObjectManager : MonoBehaviour
         for (; objectCount < m_litterObjects.Count; objectCount++)
         {
             m_litterObjects[objectCount].SetActive(false);
+        }
+    }
+
+    private void OnLocationPinsEnabledChanged(bool enabled)
+    {
+        m_locationPinsEnabled = enabled;
+
+        if (!m_locationPinsEnabled)
+        {
+            foreach (GameObject obj in m_litterObjects)
+            {
+                obj.SetActive(false);
+            }
         }
     }
 
