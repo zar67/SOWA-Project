@@ -9,7 +9,8 @@ public enum PopupType
 {
     NONE,
     GENERIC_INFO,
-    LITTER_RECORDING
+    LITTER_RECORDING,
+    SETTINGS
 }
 
 public class PopupManager : SingletonMonoBehaviour<PopupManager>
