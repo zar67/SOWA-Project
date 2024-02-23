@@ -84,7 +84,7 @@ public class GenericInfoPopup : BasePopup
 
     protected override void Cleanup()
     {
-        base.Close();
+        base.Cleanup();
 
         m_bodyText.text = string.Empty;
 
