@@ -14,11 +14,13 @@ public class LitterRecordingPopup : BasePopup
     [SerializeField] private Button m_changeLocationButton;
 
     [Header("Tags References")]
-    [SerializeField] private TMP_InputField m_tagInputField;
+    [SerializeField] private TagsData m_tagsData;
+    [SerializeField] private SearchableDropDown m_searchableInputField;
     [SerializeField] private TagObject m_tagPrefab;
     [SerializeField] private LayoutGroup[] m_tagsLayoutGroups;
     [SerializeField] private Transform m_tagsHolder;
 
+    private List<string> m_availableTags = new List<string>();
     private List<string> m_currentTags = new List<string>();
 
     public override PopupType Type => PopupType.LITTER_RECORDING;
@@ -32,20 +34,26 @@ public class LitterRecordingPopup : BasePopup
     {
         m_addButton.onClick.AddListener(RecordLitterAndClose);
         m_changeLocationButton.onClick.AddListener(ChangeLocation);
-        m_tagInputField.onSubmit.AddListener(HandleTagAdded);
+
+        m_searchableInputField.OnValueChanged += HandleTagAdded;
 
         TagObject.RemoveTagClicked += HandleRemoveTagClicked;
 
-        m_tagsHolder.DestroyChildren();
+        m_availableTags = new List<string>(m_tagsData.Tags);
+        m_availableTags.Sort();
         m_currentTags = new List<string>();
-        m_tagInputField.text = string.Empty;
+
+        m_tagsHolder.DestroyChildren();
+        m_searchableInputField.Clear();
+        m_searchableInputField.SetOptions(m_availableTags.ToArray());
     }
 
     private void OnDisable()
     {
         m_addButton.onClick.RemoveListener(RecordLitterAndClose);
         m_changeLocationButton.onClick.RemoveListener(ChangeLocation);
-        m_tagInputField.onSubmit.RemoveListener(HandleTagAdded);
+
+        m_searchableInputField.OnValueChanged -= HandleTagAdded;
 
         TagObject.RemoveTagClicked -= HandleRemoveTagClicked;
     }
@@ -66,9 +74,13 @@ public class LitterRecordingPopup : BasePopup
         TagObject newTag = Instantiate(m_tagPrefab, m_tagsHolder);
         newTag.PopulateTag(tag);
 
-        m_tagInputField.text = string.Empty;
+        if (!m_currentTags.Contains(tag))
+        {
+            m_currentTags.Add(tag);
+        }
 
-        m_currentTags.Add(tag);
+        m_availableTags.Remove(tag);
+        m_searchableInputField.SetOptions(m_availableTags.ToArray());
 
         StartCoroutine(RefreshTagsLayout());
     }
@@ -76,6 +88,13 @@ public class LitterRecordingPopup : BasePopup
     private void HandleRemoveTagClicked(string tag)
     {
         m_currentTags.Remove(tag);
+
+        if (!m_availableTags.Contains(tag))
+        {
+            m_availableTags.Add(tag);
+            m_availableTags.Sort();
+            m_searchableInputField.SetOptions(m_availableTags.ToArray());
+        }
 
         StartCoroutine(RefreshTagsLayout());
     }
