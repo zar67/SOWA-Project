@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4f8c75d29849ef84bb459d252e2dfc28
+guid: 846b43ece76e6ec4fa55618a0f01a47a
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Jessycat
+  - LT Saeada
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
