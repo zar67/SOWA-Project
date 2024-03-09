@@ -35,6 +35,10 @@ public class LitterRecordingPopup : BasePopup
         m_tagInputField.onSubmit.AddListener(HandleTagAdded);
 
         TagObject.RemoveTagClicked += HandleRemoveTagClicked;
+
+        m_tagsHolder.DestroyChildren();
+        m_currentTags = new List<string>();
+        m_tagInputField.text = string.Empty;
     }
 
     private void OnDisable()
@@ -48,7 +52,7 @@ public class LitterRecordingPopup : BasePopup
 
     private void RecordLitterAndClose()
     {
-        LitterRecordingManager.Instance.RecordLitter();
+        LitterRecordingManager.Instance.RecordLitter(m_currentTags.ToArray());
         Close();
     }
 
