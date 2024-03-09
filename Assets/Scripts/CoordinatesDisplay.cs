@@ -5,11 +5,11 @@ using UnityEngine;
 
 public class CoordinatesDisplay : MonoBehaviour
 {
-	[SerializeField] TextMeshProUGUI m_statusText;
+	[SerializeField] private TextMeshProUGUI m_statusText;
 
 	private AbstractLocationProvider m_locationProvider = null;
 
-	void Update()
+    private void Update()
 	{
 		if (m_locationProvider == null)
 		{

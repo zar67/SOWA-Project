@@ -1,5 +1,5 @@
-using UnityEngine;
 using UnityEditor;
+using UnityEngine;
 
 /// <summary>
 /// Scene auto loader.
@@ -14,7 +14,7 @@ using UnityEditor;
 /// http://forum.unity3d.com/threads/157502-Executing-first-scene-in-build-settings-when-pressing-play-button-in-editor
 /// </description>
 [InitializeOnLoad]
-static class SceneAutoLoader
+internal static class SceneAutoLoader
 {
     // Static constructor binds a playmode-changed callback.
     // [InitializeOnLoad] above makes sure this gets executed.
@@ -100,37 +100,19 @@ static class SceneAutoLoader
 
     private static bool LoadMasterOnPlay
     {
-        get
-        {
-            return EditorPrefs.GetBool(cEditorPrefLoadMasterOnPlay, false);
-        }
-        set
-        {
-            EditorPrefs.SetBool(cEditorPrefLoadMasterOnPlay, value);
-        }
+        get => EditorPrefs.GetBool(cEditorPrefLoadMasterOnPlay, false);
+        set => EditorPrefs.SetBool(cEditorPrefLoadMasterOnPlay, value);
     }
 
     private static string MasterScene
     {
-        get
-        {
-            return EditorPrefs.GetString(cEditorPrefMasterScene, "Master.unity");
-        }
-        set
-        {
-            EditorPrefs.SetString(cEditorPrefMasterScene, value);
-        }
+        get => EditorPrefs.GetString(cEditorPrefMasterScene, "Master.unity");
+        set => EditorPrefs.SetString(cEditorPrefMasterScene, value);
     }
 
     private static string PreviousScene
     {
-        get
-        {
-            return EditorPrefs.GetString(cEditorPrefPreviousScene, EditorApplication.currentScene);
-        }
-        set
-        {
-            EditorPrefs.SetString(cEditorPrefPreviousScene, value);
-        }
+        get => EditorPrefs.GetString(cEditorPrefPreviousScene, EditorApplication.currentScene);
+        set => EditorPrefs.SetString(cEditorPrefPreviousScene, value);
     }
 }

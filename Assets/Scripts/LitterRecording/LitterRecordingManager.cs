@@ -1,4 +1,3 @@
-using Mapbox.Examples;
 using Mapbox.Unity.Location;
 using Mapbox.Unity.Map;
 using Mapbox.Unity.Utilities;
