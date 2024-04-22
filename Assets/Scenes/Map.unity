@@ -1745,16 +1745,16 @@ MonoBehaviour:
   _initializeOnStart: 0
   _imagery:
     _layerProperty:
-      sourceType: 0
+      sourceType: 6
       sourceOptions:
         isActive: 1
         layerSource:
           Name: Light
-          Id: mapbox://styles/mapbox/streets-v10
+          Id: mapbox://styles/zar67/clvbe10xz00t901qz444n18hu
           Modified: 
           UserName: 
       rasterOptions:
-        useRetina: 0
+        useRetina: 1
         useCompression: 0
         useMipMap: 0
   _terrain:
