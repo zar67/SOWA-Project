@@ -2,6 +2,7 @@ using Mapbox.Unity.Map;
 using Mapbox.Unity.Utilities;
 using Mapbox.Utils;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class LitterObjectManager : MonoBehaviour
@@ -61,7 +62,7 @@ public class LitterObjectManager : MonoBehaviour
 
             m_litterObjects[objectCount].SetActive(true);
             m_litterObjects[objectCount].transform.localPosition = worldPosition;
-            m_litterObjects[objectCount].transform.localScale = Vector3.one + (Vector3.one * (cachedLitter[i].MergedAmount - 1) * m_mergedAmountScaleFactor);
+            m_litterObjects[objectCount].GetComponentInChildren<TextMeshProUGUI>().text = cachedLitter[i].MergedAmount.ToString();
 
             objectCount++;
         }
