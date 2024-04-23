@@ -20,7 +20,10 @@ public class LitterObject : MonoBehaviour
     [SerializeField] private LayoutGroup[] m_tagsLayoutGroups;
     [SerializeField] private Transform m_tagsHolder;
 
-    public bool IsShowing => m_toolTipHolder.activeInHierarchy;
+    public static void ClearToolTip()
+    {
+        OnLitterButtonClicked?.Invoke(null);
+    }
 
     private void Awake()
     {
@@ -62,12 +65,6 @@ public class LitterObject : MonoBehaviour
 
     private void HandleLitterObjectClicked(LitterObject obj)
     {
-        if (obj == this && obj.IsShowing)
-        {
-            m_toolTipHolder.SetActive(false);
-            return;
-        }
-
         m_toolTipHolder.SetActive(obj == this);
     }
 

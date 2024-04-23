@@ -1,7 +1,6 @@
 using Mapbox.Unity.Map;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ToolTipCameraMover : MonoBehaviour
 {
@@ -9,7 +8,7 @@ public class ToolTipCameraMover : MonoBehaviour
 
     private void OnEnable()
     {
-        LitterObject.OnLitterButtonClicked += HandleToolTipClicked;  
+        LitterObject.OnLitterButtonClicked += HandleToolTipClicked;
     }
 
     private void OnDisable()
@@ -17,12 +16,22 @@ public class ToolTipCameraMover : MonoBehaviour
         LitterObject.OnLitterButtonClicked -= HandleToolTipClicked;
     }
 
+    private void Update()
+    {
+        if (Input.GetMouseButton(0))
+        {
+            LitterObject.ClearToolTip();
+        }
+    }
+
     private void HandleToolTipClicked(LitterObject obj)
     {
-        if (!obj.IsShowing)
+        if (obj == null)
         {
-            var pos = m_map.WorldToGeoPosition(obj.transform.position);
-            m_map.UpdateMap(pos, m_map.Zoom);
+            return;
         }
+
+        var pos = m_map.WorldToGeoPosition(obj.transform.position);
+        m_map.UpdateMap(pos, m_map.Zoom);
     }
 }
