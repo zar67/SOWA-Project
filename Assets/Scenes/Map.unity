@@ -1073,6 +1073,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bin Button
       objectReference: {fileID: 0}
+    - target: {fileID: 3275830040255922024, guid: ba5fbf167c80c0f45847e8678a915a9f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7922941529833739170, guid: ba5fbf167c80c0f45847e8678a915a9f, type: 3}
       propertyPath: m_Pivot.x
       value: 1

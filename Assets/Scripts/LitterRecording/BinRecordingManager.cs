@@ -19,7 +19,7 @@ public class BinRecordingManager : SingletonMonoBehaviour<BinRecordingManager>
 
         Mapbox.Unity.MapboxAccess.Instance.ClearAllCacheFiles();
 
-        StartCoroutine(ApplyDatasetToTileset());
+        //StartCoroutine(ApplyDatasetToTileset());
     }
 
     public void RequestNewBinLocation()
