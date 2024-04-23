@@ -165,8 +165,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Made by: Zoe Rowbotham'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6672a1c55c9048e41b6301db3a43f5b4, type: 2}
-  m_sharedMaterial: {fileID: 7437997788125908217, guid: 6672a1c55c9048e41b6301db3a43f5b4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 98ac92b8bc02ecf4a87a7850ae8768ad, type: 2}
+  m_sharedMaterial: {fileID: 8466207183509544208, guid: 98ac92b8bc02ecf4a87a7850ae8768ad, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -190,7 +190,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
+  m_fontSize: 60
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -345,7 +345,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 21.55
+  m_fontSize: 60
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -628,8 +628,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Show Location Pins
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6672a1c55c9048e41b6301db3a43f5b4, type: 2}
-  m_sharedMaterial: {fileID: 7437997788125908217, guid: 6672a1c55c9048e41b6301db3a43f5b4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 98ac92b8bc02ecf4a87a7850ae8768ad, type: 2}
+  m_sharedMaterial: {fileID: 8466207183509544208, guid: 98ac92b8bc02ecf4a87a7850ae8768ad, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -653,7 +653,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
+  m_fontSize: 64.4
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1003,8 +1003,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Version 0.1.0
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6672a1c55c9048e41b6301db3a43f5b4, type: 2}
-  m_sharedMaterial: {fileID: 7437997788125908217, guid: 6672a1c55c9048e41b6301db3a43f5b4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 98ac92b8bc02ecf4a87a7850ae8768ad, type: 2}
+  m_sharedMaterial: {fileID: 8466207183509544208, guid: 98ac92b8bc02ecf4a87a7850ae8768ad, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1028,7 +1028,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20.7
+  m_fontSize: 60
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1359,8 +1359,8 @@ MonoBehaviour:
   m_text: This app is the product of a Scout's of the World Award project to bring
     awareness to litter in the local area and educate on recycling.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6672a1c55c9048e41b6301db3a43f5b4, type: 2}
-  m_sharedMaterial: {fileID: 7437997788125908217, guid: 6672a1c55c9048e41b6301db3a43f5b4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 98ac92b8bc02ecf4a87a7850ae8768ad, type: 2}
+  m_sharedMaterial: {fileID: 8466207183509544208, guid: 98ac92b8bc02ecf4a87a7850ae8768ad, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1384,7 +1384,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
+  m_fontSize: 60
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1614,7 +1614,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
+  m_fontSize: 72.7
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

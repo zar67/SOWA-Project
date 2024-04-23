@@ -334,8 +334,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: This is a default popup for showing popup information things.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6672a1c55c9048e41b6301db3a43f5b4, type: 2}
-  m_sharedMaterial: {fileID: 7437997788125908217, guid: 6672a1c55c9048e41b6301db3a43f5b4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 98ac92b8bc02ecf4a87a7850ae8768ad, type: 2}
+  m_sharedMaterial: {fileID: 8466207183509544208, guid: 98ac92b8bc02ecf4a87a7850ae8768ad, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -741,7 +741,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1488056011034278038, guid: baf7c321e7e2c1946be30f7aaeb62daa, type: 3}
       propertyPath: m_fontSize
-      value: 46.35
+      value: 49.25
       objectReference: {fileID: 0}
     - target: {fileID: 2344600359553840653, guid: baf7c321e7e2c1946be30f7aaeb62daa, type: 3}
       propertyPath: m_Pivot.x
@@ -874,7 +874,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1488056011034278038, guid: baf7c321e7e2c1946be30f7aaeb62daa, type: 3}
       propertyPath: m_fontSize
-      value: 46.35
+      value: 49.25
       objectReference: {fileID: 0}
     - target: {fileID: 2344600359553840653, guid: baf7c321e7e2c1946be30f7aaeb62daa, type: 3}
       propertyPath: m_Pivot.x

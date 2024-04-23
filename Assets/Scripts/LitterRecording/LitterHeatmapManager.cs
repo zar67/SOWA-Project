@@ -1,7 +1,6 @@
 using Mapbox.Unity.Map;
 using Mapbox.Unity.Utilities;
 using Mapbox.Utils;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -48,7 +47,7 @@ public class LitterHeatmapManager : MonoBehaviour
                     int index = hitPointCount * 3;
                     m_points[index] = hit.textureCoord.x;
                     m_points[index + 1] = hit.textureCoord.y;
-                    m_points[index + 2] = m_map.Zoom * 0.01f * cachedLitter[i].MergedAmount;
+                    m_points[index + 2] = m_map.Zoom * 0.01f;
 
                     hitPointCount++;
                 }

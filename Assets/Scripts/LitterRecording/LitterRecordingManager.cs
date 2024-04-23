@@ -1,4 +1,3 @@
-using Mapbox.Examples;
 using Mapbox.Unity.Location;
 using Mapbox.Unity.Map;
 using Mapbox.Unity.Utilities;
@@ -60,7 +59,7 @@ public class LitterRecordingManager : SingletonMonoBehaviour<LitterRecordingMana
         }
     }
 
-    public void RecordLitter()
+    public void RecordLitter(string[] tags)
     {
         if (m_locationProvider == null)
         {
@@ -72,7 +71,8 @@ public class LitterRecordingManager : SingletonMonoBehaviour<LitterRecordingMana
         var data = new LitterData()
         {
             Timestamp = DateTime.UtcNow.ToString(),
-            Location = $"{currentLocation.LatitudeLongitude.x},{currentLocation.LatitudeLongitude.y}"
+            Location = $"{currentLocation.LatitudeLongitude.x},{currentLocation.LatitudeLongitude.y}",
+            Tags = tags
         };
 
         FirebaseDatabaseManager.Instance.AppendData(LITTER_KEY, data);

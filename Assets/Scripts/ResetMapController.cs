@@ -1,7 +1,5 @@
 using Mapbox.Unity.Location;
 using Mapbox.Unity.Map;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 

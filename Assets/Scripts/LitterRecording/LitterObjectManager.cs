@@ -2,13 +2,14 @@ using Mapbox.Unity.Map;
 using Mapbox.Unity.Utilities;
 using Mapbox.Utils;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class LitterObjectManager : MonoBehaviour
 {
     [SerializeField] private AbstractMap m_map;
     [SerializeField] private Transform m_litterObjectHolder;
-    [SerializeField] private GameObject m_litterObjectPrefab;
+    [SerializeField] private LitterObject m_litterObjectPrefab;
 
     [SerializeField] private float m_maxDistance = 1000f;
     [SerializeField] private float m_mergedAmountScaleFactor = 0.5f;
@@ -16,7 +17,7 @@ public class LitterObjectManager : MonoBehaviour
     private bool m_locationPinsEnabled = true;
 
     private Camera m_uiCamera;
-    private List<GameObject> m_litterObjects = new List<GameObject>();
+    private List<LitterObject> m_litterObjects = new List<LitterObject>();
 
     private void Awake()
     {
@@ -59,16 +60,16 @@ public class LitterObjectManager : MonoBehaviour
                 SpawnNewLitterObject();
             }
 
-            m_litterObjects[objectCount].SetActive(true);
+            m_litterObjects[objectCount].gameObject.SetActive(true);
             m_litterObjects[objectCount].transform.localPosition = worldPosition;
-            m_litterObjects[objectCount].transform.localScale = Vector3.one + (Vector3.one * (cachedLitter[i].MergedAmount - 1) * m_mergedAmountScaleFactor);
+            m_litterObjects[objectCount].SetData(cachedLitter[i]);
 
             objectCount++;
         }
 
         for (; objectCount < m_litterObjects.Count; objectCount++)
         {
-            m_litterObjects[objectCount].SetActive(false);
+            m_litterObjects[objectCount].gameObject.SetActive(false);
         }
     }
 
@@ -78,9 +79,9 @@ public class LitterObjectManager : MonoBehaviour
 
         if (!m_locationPinsEnabled)
         {
-            foreach (GameObject obj in m_litterObjects)
+            foreach (LitterObject obj in m_litterObjects)
             {
-                obj.SetActive(false);
+                obj.gameObject.SetActive(false);
             }
         }
     }
@@ -92,12 +93,15 @@ public class LitterObjectManager : MonoBehaviour
 
     private void SpawnNewLitterObject()
     {
-        GameObject newLitterObject = Instantiate(m_litterObjectPrefab, m_litterObjectHolder);
+        LitterObject newLitterObject = Instantiate(m_litterObjectPrefab, m_litterObjectHolder);
         newLitterObject.transform.localPosition = Vector3.zero;
         newLitterObject.transform.localScale = Vector3.one;
 
-        Canvas canvas = newLitterObject.GetComponentInChildren<Canvas>();
-        canvas.worldCamera = m_uiCamera;
+        Canvas[] canvases = newLitterObject.GetComponentsInChildren<Canvas>(true);
+        foreach (Canvas canvas in canvases)
+        {
+            canvas.worldCamera = m_uiCamera;
+        }
 
         m_litterObjects.Add(newLitterObject);
     }
