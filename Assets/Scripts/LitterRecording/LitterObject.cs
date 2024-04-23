@@ -54,8 +54,6 @@ public class LitterObject : MonoBehaviour
             TagObject newTag = Instantiate(m_tagPrefab, m_tagsHolder);
             newTag.PopulateTag(tag);
         }
-
-        StartCoroutine(RefreshTagsLayout());
     }
 
     private void HandleButtonClicked()
