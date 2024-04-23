@@ -204,7 +204,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 32767
   m_TargetDisplay: 0
 --- !u!224 &1651216
 RectTransform:
@@ -644,6 +644,7 @@ GameObject:
   - component: {fileID: 536708735}
   - component: {fileID: 536708734}
   - component: {fileID: 536708733}
+  - component: {fileID: 536708737}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -734,6 +735,19 @@ Transform:
   - {fileID: 506308397}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 60, y: 0, z: 0}
+--- !u!114 &536708737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 536708732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6d0358b5334bb6419221c33c6605b8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_map: {fileID: 114105501077367023}
 --- !u!1 &578475631
 GameObject:
   m_ObjectHideFlags: 0
@@ -1001,7 +1015,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_map: {fileID: 114105501077367023}
   m_litterObjectHolder: {fileID: 1579502648}
-  m_litterObjectPrefab: {fileID: 4904157705312679314, guid: f2df884199843a341a794e2b2e31dec1, type: 3}
+  m_litterObjectPrefab: {fileID: 6218346082541258307, guid: f2df884199843a341a794e2b2e31dec1, type: 3}
   m_maxDistance: 1000
   m_mergedAmountScaleFactor: 0.5
 --- !u!4 &1579502648
