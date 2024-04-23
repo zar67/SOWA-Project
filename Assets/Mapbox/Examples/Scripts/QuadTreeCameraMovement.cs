@@ -14,6 +14,12 @@
 		public float _panSpeed = 1.0f;
 
 		[SerializeField]
+		float _maxZoom = 21f;
+
+		[SerializeField]
+		float _minZoom = 0f;
+
+		[SerializeField]
 		float _zoomSpeed = 0.25f;
 
 		[SerializeField]
@@ -133,7 +139,7 @@
 
 		void ZoomMapUsingTouchOrMouse(float zoomFactor)
 		{
-			var zoom = Mathf.Max(0.0f, Mathf.Min(_mapManager.Zoom + zoomFactor * _zoomSpeed, 21.0f));
+			var zoom = Mathf.Max(_minZoom, Mathf.Min(_mapManager.Zoom + zoomFactor * _zoomSpeed, _maxZoom));
 			if (Math.Abs(zoom - _mapManager.Zoom) > 0.0f)
 			{
 				_mapManager.UpdateMap(_mapManager.CenterLatitudeLongitude, zoom);

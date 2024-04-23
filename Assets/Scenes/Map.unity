@@ -964,6 +964,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _panSpeed: 2
+  _maxZoom: 18
+  _minZoom: 6
   _zoomSpeed: 1
   _referenceCamera: {fileID: 536708735}
   _mapManager: {fileID: 114105501077367023}
