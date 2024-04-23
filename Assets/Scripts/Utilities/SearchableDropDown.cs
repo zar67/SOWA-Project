@@ -18,6 +18,8 @@ public class SearchableDropDown : MonoBehaviour
     private List<string> m_dropdownOptions = new List<string>();
     private List<DropdownButton> m_initializedItems = new List<DropdownButton>();
 
+    public event Action OnSelect;
+    public event Action OnDeselect;
     public event Action<string> OnValueChanged;
 
     public string Value => m_inputField.text;
@@ -37,12 +39,16 @@ public class SearchableDropDown : MonoBehaviour
     private void OnEnable()
     {
         m_inputField.onValueChanged.AddListener(HandleInputValueChanged);
+        m_inputField.onSelect.AddListener(HandleSelect);
+        m_inputField.onDeselect.AddListener(HandleDeselect);
         DropdownButton.SelectButtonClicked += HandleItemSelected;
     }
 
     private void OnDisable()
     {
         m_inputField.onValueChanged.RemoveListener(HandleInputValueChanged);
+        m_inputField.onSelect.RemoveListener(HandleSelect);
+        m_inputField.onDeselect.RemoveListener(HandleDeselect);
         DropdownButton.SelectButtonClicked -= HandleItemSelected;
     }
 
@@ -72,6 +78,16 @@ public class SearchableDropDown : MonoBehaviour
     private void HandleInputValueChanged(string newValue)
     {
         FilterDropdown(newValue);
+    }
+
+    private void HandleSelect(string value)
+    {
+        OnSelect?.Invoke();
+    }
+
+    private void HandleDeselect(string value)
+    {
+        OnDeselect?.Invoke();
     }
 
     private void FilterDropdown(string input = "")

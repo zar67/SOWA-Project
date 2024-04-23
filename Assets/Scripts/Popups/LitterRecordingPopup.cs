@@ -1,12 +1,14 @@
 using Extensions;
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class LitterRecordingPopup : BasePopup
 {
+    [Header("Content References")]
+    [SerializeField] private RectTransform m_content;
+
     [Header("Add Button References")]
     [SerializeField] private Button m_addButton;
 
@@ -35,6 +37,8 @@ public class LitterRecordingPopup : BasePopup
         m_addButton.onClick.AddListener(RecordLitterAndClose);
         m_changeLocationButton.onClick.AddListener(ChangeLocation);
 
+        m_searchableInputField.OnSelect += HandleInputFieldSelected;
+        m_searchableInputField.OnDeselect += HandleInputFieldDeselected;
         m_searchableInputField.OnValueChanged += HandleTagAdded;
 
         TagObject.RemoveTagClicked += HandleRemoveTagClicked;
@@ -53,6 +57,8 @@ public class LitterRecordingPopup : BasePopup
         m_addButton.onClick.RemoveListener(RecordLitterAndClose);
         m_changeLocationButton.onClick.RemoveListener(ChangeLocation);
 
+        m_searchableInputField.OnSelect -= HandleInputFieldSelected;
+        m_searchableInputField.OnDeselect -= HandleInputFieldDeselected;
         m_searchableInputField.OnValueChanged -= HandleTagAdded;
 
         TagObject.RemoveTagClicked -= HandleRemoveTagClicked;
@@ -69,8 +75,22 @@ public class LitterRecordingPopup : BasePopup
         // For future, add the ability to input a specific location.
     }
 
+    private void HandleInputFieldSelected()
+    {
+        var position = m_content.localPosition;
+        position.y += m_content.rect.height / 2;
+        m_content.localPosition = position;
+    }
+
+    private void HandleInputFieldDeselected()
+    {
+        m_content.localPosition = Vector2.zero;
+    }
+
     private void HandleTagAdded(string tag)
     {
+        HandleInputFieldDeselected();
+
         TagObject newTag = Instantiate(m_tagPrefab, m_tagsHolder);
         newTag.PopulateTag(tag);
 
