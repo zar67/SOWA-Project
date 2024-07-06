@@ -244,6 +244,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_settingsButton: {fileID: 1972914279}
   m_recordLitterButton: {fileID: 840886229}
+  m_randomLitterStatisticTextSelector: {fileID: 11400000, guid: 4dd9065d550c8824ea3ee6591f1ef30c, type: 2}
 --- !u!1 &116257555
 GameObject:
   m_ObjectHideFlags: 0
