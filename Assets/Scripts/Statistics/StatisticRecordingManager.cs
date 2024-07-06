@@ -26,6 +26,8 @@ public class StatisticRecordingManager : SingletonMonoBehaviour<StatisticRecordi
 
     public void RecordStatistics(string[] tags)
     {
+        UserStatistics.TotalRecordedLitter++;
+
         foreach (string tag in tags)
         {
             if (!UserStatistics.RecordedLitterByTag.ContainsKey(tag))
@@ -48,11 +50,5 @@ public class StatisticRecordingManager : SingletonMonoBehaviour<StatisticRecordi
         }
 
         UserStatistics = JsonConvert.DeserializeObject<UserStatistics>(args.Snapshot.Value as string);
-
-        UserStatistics.TotalRecordedLitter = 0;
-        foreach (long tagAmount in UserStatistics.RecordedLitterByTag.Values)
-        {
-            UserStatistics.TotalRecordedLitter += tagAmount;
-        }
     }
 }
