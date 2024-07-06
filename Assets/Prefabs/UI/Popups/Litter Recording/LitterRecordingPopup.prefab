@@ -56,6 +56,7 @@ MonoBehaviour:
   m_closeTrigger: Close
   m_closeButtonHolder: {fileID: 1429832036500275909}
   m_closeButton: {fileID: 8214788171270508075}
+  m_content: {fileID: 7177788820246864765}
   m_addButton: {fileID: 8450977355272326608}
   m_changeLocationButton: {fileID: 8935946648685560912}
   m_tagsData: {fileID: 11400000, guid: 6187b60f7893e2a489f6b8aa27496563, type: 2}
@@ -2502,23 +2503,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6150625955854486719, guid: 712239bdd1eed1e43b36839c00c51228, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6150625955854486719, guid: 712239bdd1eed1e43b36839c00c51228, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6150625955854486719, guid: 712239bdd1eed1e43b36839c00c51228, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 650
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6150625955854486719, guid: 712239bdd1eed1e43b36839c00c51228, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 332
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6150625955854486719, guid: 712239bdd1eed1e43b36839c00c51228, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -37
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

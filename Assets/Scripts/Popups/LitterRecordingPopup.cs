@@ -67,6 +67,7 @@ public class LitterRecordingPopup : BasePopup
     private void RecordLitterAndClose()
     {
         LitterRecordingManager.Instance.RecordLitter(m_currentTags.ToArray());
+        StatisticRecordingManager.Instance.RecordStatistics(m_currentTags.ToArray());
         Close();
 
     }

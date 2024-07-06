@@ -1,4 +1,5 @@
 using Firebase.Database;
+using Newtonsoft.Json;
 using System;
 using System.Threading.Tasks;
 using UnityEngine;
@@ -27,12 +28,12 @@ public class FirebaseDatabaseManager : SingletonMonoBehaviour<FirebaseDatabaseMa
 
     public void SaveData<T>(string path, T data)
     {
-        m_firebaseDatabase.GetReference(path).SetRawJsonValueAsync(JsonUtility.ToJson(data));
+        m_firebaseDatabase.GetReference(path).SetValueAsync(JsonConvert.SerializeObject(data));
     }
 
     public void AppendData<T>(string path, T data)
     {
-        m_firebaseDatabase.GetReference(path).Push().SetValueAsync(JsonUtility.ToJson(data));
+        m_firebaseDatabase.GetReference(path).Push().SetValueAsync(JsonConvert.SerializeObject(data));
     }
 
     public async Task<T> LoadData<T>(string path)
@@ -43,7 +44,7 @@ public class FirebaseDatabaseManager : SingletonMonoBehaviour<FirebaseDatabaseMa
             return default;
         }
 
-        return JsonUtility.FromJson<T>(dataSnapshot.GetRawJsonValue());
+        return JsonConvert.DeserializeObject<T>(dataSnapshot.GetRawJsonValue());
     }
 
     public async Task<bool> DoesDataExist(string path)
