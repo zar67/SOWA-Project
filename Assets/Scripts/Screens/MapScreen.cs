@@ -5,6 +5,7 @@ public class MapScreen : MonoBehaviour
 {
     [SerializeField] private Button m_settingsButton;
     [SerializeField] private Button m_recordLitterButton;
+    [SerializeField] private Button m_statisticsButton;
 
     [SerializeField] private RandomTextScriptableObject m_randomRecyclingInfoTextSelector;
 
@@ -12,12 +13,14 @@ public class MapScreen : MonoBehaviour
     {
         m_settingsButton.onClick.AddListener(OpenSettingsPanel);
         m_recordLitterButton.onClick.AddListener(OpenRecordingPanel);
+        m_statisticsButton.onClick.AddListener(OpenStatisticsPanel);
     }
 
     private void OnDisable()
     {
         m_settingsButton.onClick.RemoveListener(OpenSettingsPanel);
         m_recordLitterButton.onClick.RemoveListener(OpenRecordingPanel);
+        m_statisticsButton.onClick.RemoveListener(OpenStatisticsPanel);
     }
 
     private void OpenSettingsPanel()
@@ -39,6 +42,14 @@ public class MapScreen : MonoBehaviour
         });
     }
 
+    private void OpenStatisticsPanel()
+    {
+        PopupManager.Instance.OpenPopup(new BasePopupData()
+        {
+            Type = PopupType.STATISTICS,
+            ShowCloseButton = true,
+        });
+    }
     private void HandleCloseRecordingPopup()
     {
         PopupManager.Instance.OpenPopup(new GenericInfoPopupData()
