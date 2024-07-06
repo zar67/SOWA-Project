@@ -68,6 +68,7 @@ public class LitterRecordingPopup : BasePopup
     {
         LitterRecordingManager.Instance.RecordLitter(m_currentTags.ToArray());
         Close();
+
     }
 
     private void ChangeLocation()

@@ -32,7 +32,26 @@ public class MapScreen : MonoBehaviour
         PopupManager.Instance.OpenPopup(new BasePopupData()
         {
             Type = PopupType.LITTER_RECORDING,
-            ShowCloseButton = true
+            ShowCloseButton = true,
+            OnCloseStarted = HandleCloseRecordingPopup
+        });
+    }
+
+    private void HandleCloseRecordingPopup()
+    {
+        PopupManager.Instance.OpenPopup(new GenericInfoPopupData()
+        {
+            Type = PopupType.GENERIC_INFO,
+            ShowCloseButton = false,
+            BodyText = "Thank you! Your litter has been recorded. Did you know... {fun fact}",
+            ButtonDatas = new PopupButtonData[]
+            {
+                new PopupButtonData()
+                {
+                    Text = "Continue",
+                    CloseOnClick = true
+                }
+            }
         });
     }
 }

@@ -50,6 +50,8 @@ public class PopupManager : SingletonMonoBehaviour<PopupManager>
 
         BasePopup popupToOpen = m_closedPopups[data.Type][0];
 
+        data.OnCloseStarted += () => HandlePopupClosed(popupToOpen);
+
         if (!m_openPopups.ContainsKey(data.Type))
         {
             m_openPopups.Add(data.Type, new List<BasePopup>());
@@ -71,8 +73,6 @@ public class PopupManager : SingletonMonoBehaviour<PopupManager>
 
         m_openPopups = new Dictionary<PopupType, List<BasePopup>>();
         m_closedPopups = new Dictionary<PopupType, List<BasePopup>>();
-
-        BasePopup.OnPopupClose += HandlePopupClosed;
 
         OnValidate();
     }
