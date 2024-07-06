@@ -54,7 +54,10 @@ public class GenericInfoPopup : BasePopup
             if (isActive)
             {
                 button.Holder.SetActive(true);
-                button.Button.onClick.AddListener(infoData.ButtonDatas[i].Action);
+                if (infoData.ButtonDatas[i].Action != null)
+                {
+                    button.Button.onClick.AddListener(infoData.ButtonDatas[i].Action);
+                }
                 button.Text.text = infoData.ButtonDatas[i].Text;
 
                 if (infoData.ButtonDatas[i].CloseOnClick)
@@ -72,9 +75,9 @@ public class GenericInfoPopup : BasePopup
     }
 
     // Called by the animator when the open animation is complete.
-    protected override void OnOpenComplete()
+    protected override void HandleOpenComplete()
     {
-        base.OnOpenComplete();
+        base.HandleOpenComplete();
 
         foreach (ButtonReference button in m_buttons)
         {

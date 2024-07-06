@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 372154b32b49ada49a215cdce02ae0c1, type: 3}
+  m_Name: RecyclingInfoTextSelector
+  m_EditorClassIdentifier: 
+  m_texts: 
+    - All materials must be dry and clean. If they are not, then it is impossible to recycle them.
+    - All containers should be empty and rinsed clean before being recycled.
+    - Almost everything is recyclable in theory. But, in practice, whether a product actually is depends on whether the process is effective and economically viable. Some products are easier to recycle than others.
+    - Soft drinks bottles, water bottles and fruit punnets are made of Polyethylene Terephthalate (PET) and are very easy to recycle. They can be placed in your recycling bin at home.
+    - Milk bottles, cleaning products and toiletry bottles are made of High-Density Polyethylene (HDPE) and are very easy to recycle. They can be placed in your recycling bin at home.
+    - Yoghurt pots, margarine/spreadable butter tubs, microwaveable meal trays and toiletry containers are made of Polypropylene (PP) and for most councils will accept them in your recycling bin at home.
+    - Food bags such as bread bags, shopping bags and magazine wrapping are made of Low-Density Polyethylene (LDPE). They are rarely accepted by councils in household recycling bins and should be taken to a supermarket collection point instead.
+    - Food packaging such as crisp packets, salad bags, pet and baby food pouches are made of a variety of plastics, and some include a layer of aluminium. They are difficult to recycle and not accepted in household recycling bins. Some supermarket collection points accept them.
+    - The general rule is to screw plastic lids back on to their bottles and push straws back into cartons before recycling. On their own they are too small to make it through most recycling sorting machines (many will reject anything narrower than 40mm). 
+    - Flatten plastic bottles before you put them out for recycling. This not only saves space, but this also stops bottles rolling off the sorting machine conveyor belts.
+    - Take recyclable plastic film and leftover carrier bags back to recycling points at big supermarkets.
+    - If there’s residual food waste left in your recycling, empty it and give it a quick rinse. They don’t need to be sparkling clean, but a half-full yoghurt pot or baked bean tin, for example, risk contaminating porous materials such as paper and card in the same recycling load.
+    - Black plastic not being recyclable is largely a thing of the past. Most manufacturers now use a non-carbon type of black so optical sorters can detect it, or have moved to using clear plastic.
+    - Don't recycle PVC clingfilm. As an alternative, some supermarkets sell non-PVC clingfilm, usually made of LDPE, but this would need to be taken to a supermarket collection point unless your council collects soft plastics.
+    - Plastic toys or rigid household plastic items shouldn't go in your recycling bin. 
+    - Plastic cutlery generally can't be recycled.
+    - Batteries, particularly lithium-ion ones, are the cause of a huge number of fires at recycling plants, which endanger lives and cause plant shutdowns.
+    - Put compostable plastics in your general rubbish. They can't be recycled and can only go in your home compost if they carry the home compost symbol – mostly only found on food caddy liners.

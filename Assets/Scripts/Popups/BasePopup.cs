@@ -10,6 +10,11 @@ public class BasePopupData
 
     public bool ShowCloseButton;
     public UnityAction CloseButtonAction;
+
+    public Action OnOpenStarted;
+    public Action OnOpenComplete;
+    public Action OnCloseStarted;
+    public Action OnCloseComplete;
 }
 
 public class BasePopup : MonoBehaviour
@@ -22,10 +27,10 @@ public class BasePopup : MonoBehaviour
         CLOSING,
     }
 
-    public static event Action<BasePopup> OnPopupOpen;
-    public static event Action<BasePopup> OnPopupOpenComplete;
-    public static Action<BasePopup> OnPopupClose;
-    public static Action<BasePopup> OnPopupCloseComplete;
+    protected event Action OnOpenStarted;
+    protected event Action OnOpenComplete;
+    protected event Action OnCloseStarted;
+    protected event Action OnCloseComplete;
 
     [Header("Animation References")]
     [SerializeField] protected Animator m_animator;
@@ -52,6 +57,11 @@ public class BasePopup : MonoBehaviour
         // Make sure all listeners are removed from old initialisations.
         Cleanup();
 
+        OnOpenStarted = data.OnOpenStarted;
+        OnOpenComplete = data.OnOpenComplete;
+        OnCloseStarted = data.OnCloseStarted;
+        OnCloseComplete = data.OnCloseComplete;
+
         m_closeButtonHolder.SetActive(data.ShowCloseButton);
 
         if (data.ShowCloseButton)
@@ -71,7 +81,7 @@ public class BasePopup : MonoBehaviour
         m_animator.SetTrigger(m_openTrigger);
 
         CurrentState = PopupState.OPENING;
-        OnPopupOpen?.Invoke(this);
+        OnOpenStarted?.Invoke();
     }
 
     public virtual void Close()
@@ -79,21 +89,21 @@ public class BasePopup : MonoBehaviour
         m_animator.SetTrigger(m_closeTrigger);
 
         CurrentState = PopupState.CLOSING;
-        OnPopupClose?.Invoke(this);
+        OnCloseStarted?.Invoke();
     }
 
     // Called by the animator when the open animation is complete.
-    protected virtual void OnOpenComplete()
+    protected virtual void HandleOpenComplete()
     {
         CurrentState = PopupState.OPEN;
-        OnPopupOpenComplete?.Invoke(this);
+        OnOpenComplete?.Invoke();
     }
 
     // Called by the animator when the close animation is complete.
-    protected virtual void OnCloseComplete()
+    protected virtual void HandleCloseComplete()
     {
         Cleanup();
-        OnPopupCloseComplete?.Invoke(this);
+        OnCloseComplete?.Invoke();
     }
 
     protected virtual void Cleanup()
