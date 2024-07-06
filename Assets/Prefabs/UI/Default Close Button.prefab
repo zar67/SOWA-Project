@@ -9,9 +9,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 323224909166569749, guid: ba5fbf167c80c0f45847e8678a915a9f, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 85e250863a8abf8498ef6ceab2f62239, type: 3}
+      propertyPath: m_Color.b
+      value: 0.09019608
+      objectReference: {fileID: 0}
+    - target: {fileID: 323224909166569749, guid: ba5fbf167c80c0f45847e8678a915a9f, type: 3}
+      propertyPath: m_Color.g
+      value: 0.4156863
+      objectReference: {fileID: 0}
+    - target: {fileID: 323224909166569749, guid: ba5fbf167c80c0f45847e8678a915a9f, type: 3}
+      propertyPath: m_Color.r
+      value: 0.909804
+      objectReference: {fileID: 0}
     - target: {fileID: 2188720077248084630, guid: ba5fbf167c80c0f45847e8678a915a9f, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -37,9 +45,17 @@ PrefabInstance:
       value: Default Close Button
       objectReference: {fileID: 0}
     - target: {fileID: 6641183194032777754, guid: ba5fbf167c80c0f45847e8678a915a9f, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 246b664cb5f05924a9a43a6703067334, type: 3}
+      propertyPath: m_Color.b
+      value: 0.09019608
+      objectReference: {fileID: 0}
+    - target: {fileID: 6641183194032777754, guid: ba5fbf167c80c0f45847e8678a915a9f, type: 3}
+      propertyPath: m_Color.g
+      value: 0.41568628
+      objectReference: {fileID: 0}
+    - target: {fileID: 6641183194032777754, guid: ba5fbf167c80c0f45847e8678a915a9f, type: 3}
+      propertyPath: m_Color.r
+      value: 0.9098039
+      objectReference: {fileID: 0}
     - target: {fileID: 7922941529833739170, guid: ba5fbf167c80c0f45847e8678a915a9f, type: 3}
       propertyPath: m_Pivot.x
       value: 1

@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using TMPro;
 
 #if UNITY_ANDROID
 using UnityEngine.Android;
@@ -7,9 +9,16 @@ using UnityEngine.Android;
 
 public class IntroScreen : MonoBehaviour
 {
+    private const float MIN_LOAD_TIME = 2f;
+
     [SerializeField] private string m_mapSceneName;
     [SerializeField] private GameObject m_tapToContinueHolder;
+    [SerializeField] private Slider m_loadingSlider;
+    [SerializeField] private AnimationCurve m_loadingCurve;
+    [SerializeField] private RandomTextScriptableObject m_randomLitterStatisticText;
+    [SerializeField] private TextMeshProUGUI m_litterStatisticText;
 
+    private float m_loadingTimer = 0f;
     private bool m_locationPermissionEnabled;
 
     private void Awake()
@@ -19,10 +28,13 @@ public class IntroScreen : MonoBehaviour
         m_locationPermissionEnabled = false;
         m_tapToContinueHolder.SetActive(false);
 
+        m_litterStatisticText.text = m_randomLitterStatisticText.ChooseRandomText();
+
+        LoadMap();
+
         if (Permission.HasUserAuthorizedPermission(Permission.FineLocation))
         {
             m_locationPermissionEnabled = true;
-            m_tapToContinueHolder.SetActive(true);
             return;
         }
 
@@ -48,7 +60,18 @@ public class IntroScreen : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) && !PopupManager.Instance.HasOpenPopup() && m_locationPermissionEnabled)
+        m_loadingTimer += Time.deltaTime;
+
+        if (m_loadingTimer > MIN_LOAD_TIME)
+        {
+            m_loadingTimer = MIN_LOAD_TIME;
+        }
+
+        m_loadingSlider.value = m_loadingCurve.Evaluate(m_loadingTimer / MIN_LOAD_TIME);
+
+        m_tapToContinueHolder.SetActive(m_locationPermissionEnabled && m_loadingTimer >= MIN_LOAD_TIME);
+
+        if (Input.GetMouseButtonDown(0) && !PopupManager.Instance.HasOpenPopup() && m_locationPermissionEnabled && m_loadingTimer >= MIN_LOAD_TIME)
         {
             MoveToMap();
         }
@@ -91,8 +114,13 @@ public class IntroScreen : MonoBehaviour
     }
 #endif
 
+    private void LoadMap()
+    {
+        SceneManager.LoadScene(m_mapSceneName, LoadSceneMode.Additive);
+    }
+
     private void MoveToMap()
     {
-        SceneManager.LoadScene(m_mapSceneName, LoadSceneMode.Single);
+        _ = SceneManager.UnloadSceneAsync("Intro");
     }
 }
