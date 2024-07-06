@@ -30,11 +30,10 @@ public class IntroScreen : MonoBehaviour
 
         m_litterStatisticText.text = m_randomLitterStatisticText.ChooseRandomText();
 
-        LoadMap();
-
         if (Permission.HasUserAuthorizedPermission(Permission.FineLocation))
         {
             m_locationPermissionEnabled = true;
+            LoadMap();
             return;
         }
 
@@ -60,11 +59,14 @@ public class IntroScreen : MonoBehaviour
 
     private void Update()
     {
-        m_loadingTimer += Time.deltaTime;
-
-        if (m_loadingTimer > MIN_LOAD_TIME)
+        if (m_locationPermissionEnabled && m_loadingTimer < MIN_LOAD_TIME)
         {
-            m_loadingTimer = MIN_LOAD_TIME;
+            m_loadingTimer += Time.deltaTime;
+
+            if (m_loadingTimer > MIN_LOAD_TIME)
+            {
+                m_loadingTimer = MIN_LOAD_TIME;
+            }
         }
 
         m_loadingSlider.value = m_loadingCurve.Evaluate(m_loadingTimer / MIN_LOAD_TIME);
@@ -92,6 +94,7 @@ public class IntroScreen : MonoBehaviour
     {
         m_locationPermissionEnabled = true;
         m_tapToContinueHolder.SetActive(true);
+        LoadMap();
     }
 
     private void PermissionDenied(string _)
