@@ -6,7 +6,7 @@ public class MapScreen : MonoBehaviour
     [SerializeField] private Button m_settingsButton;
     [SerializeField] private Button m_recordLitterButton;
 
-    [SerializeField] private RandomTextScriptableObject m_randomLitterStatisticTextSelector;
+    [SerializeField] private RandomTextScriptableObject m_randomRecyclingInfoTextSelector;
 
     private void OnEnable()
     {
@@ -45,7 +45,7 @@ public class MapScreen : MonoBehaviour
         {
             Type = PopupType.GENERIC_INFO,
             ShowCloseButton = false,
-            BodyText = $"Thank you! Your litter has been recorded. Did you know...\n\n{m_randomLitterStatisticTextSelector.ChooseRandomText()}",
+            BodyText = $"Thank you! Your litter has been recorded.\n\nTIP: {m_randomRecyclingInfoTextSelector.ChooseRandomText()}",
             ButtonDatas = new PopupButtonData[]
             {
                 new PopupButtonData()
