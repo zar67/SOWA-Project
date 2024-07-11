@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class FTUEManager : SingletonMonoBehaviour<FTUEManager>
@@ -7,8 +8,9 @@ public class FTUEManager : SingletonMonoBehaviour<FTUEManager>
 
     [SerializeField] private FTUEStagesData m_stagesData;
 
-    private BasePopup m_currentFTUEPopup = null;
     private BasePopup m_currentOpenPopup = null;
+
+    public Action<string> OnSetFTUEHighlight;
 
     public void BeginFTUE()
     {
@@ -32,7 +34,7 @@ public class FTUEManager : SingletonMonoBehaviour<FTUEManager>
             });
         }
 
-        m_currentFTUEPopup = PopupManager.Instance.OpenPopup(new FTUEPopupData()
+        PopupManager.Instance.OpenPopup(new FTUEPopupData()
         {
             Type = PopupType.FTUE_INFO,
             ShowCloseButton = true,
@@ -42,7 +44,7 @@ public class FTUEManager : SingletonMonoBehaviour<FTUEManager>
             TotalStagesNumber = m_stagesData.GetTotalStagesCount()
         });
 
-        // Highlight components
+        OnSetFTUEHighlight?.Invoke(id);
     }
 
     private void CompleteFTUEStage(string id)
