@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 758691c37fb7adc46a38769c357e92e8, type: 3}
+  m_Name: FTUEStagesData
+  m_EditorClassIdentifier: 
+  m_stages:
+  - ID: introduce_app
+    PopupType: 0
+    Text: Welcome!
+  - ID: introduce_recording
+    PopupType: 0
+    Text: Press this button to record.
+  - ID: recording_popup
+    PopupType: 2
+    Text: This popup allows you to record any litter you find. It will use your current
+      location, so make sure to record as soon as you find any litter.
+  - ID: recording_tags
+    PopupType: 2
+    Text: You can add tags to any litter you find, add as many tags as you want.
+  - ID: recording_submit
+    PopupType: 2
+    Text: Press the plus button to submit your litter recording.
+  - ID: recording_pins
+    PopupType: 0
+    Text: Litter appears as pins on the map, tapping any pin will show you the information
+      about the litter found, such as the tags. Pins can be turned on and off in
+      the settings.
+  - ID: recording_heatmap
+    PopupType: 0
+    Text: There is also a heatmap which shows the amount of litter collected in an
+      area, this can also be turned on and off in settings.
+  - ID: introduce_statistics
+    PopupType: 4
+    Text: Each piece of litter you record increases your statistics. Try to gain
+      as many levels as possible by recording the litter you collect.
+  - ID: completed
+    PopupType: 0
+    Text: That's all! Thanks for downloading the app and helping me achieve my SOWA
+      award, go collect some litter and make the world a better place!

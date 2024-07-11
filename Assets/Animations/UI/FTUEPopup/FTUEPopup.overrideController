@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: FTUEPopup
+  m_Controller: {fileID: 9100000, guid: 3ce3b7a9998c59947ba2161b4d4b1e1d, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: f1652973e2ef5a740883658cbc789adc, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: c6c08227bbabe8c4bbecd2e1dc0988a0, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 224e35f12b9d5c340b57b447a9a5e8c3, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 1a408e32fa13d0f45a899e800173d74d, type: 2}
