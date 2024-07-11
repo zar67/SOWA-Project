@@ -73,11 +73,6 @@ public class BasePopup : MonoBehaviour
 
         if (data.ShowCloseButton)
         {
-            if (data.CloseResultActions.ContainsKey(CLOSE_RESULT_CLOSE_BUTTON))
-            {
-                m_closeButton.onClick.AddListener(() => data.CloseResultActions[CLOSE_RESULT_CLOSE_BUTTON]?.Invoke());
-            }
-
             m_closeButton.onClick.AddListener(() => Close(CLOSE_RESULT_CLOSE_BUTTON));
         }
     }
