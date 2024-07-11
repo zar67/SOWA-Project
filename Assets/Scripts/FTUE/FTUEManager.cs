@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class FTUEManager : SingletonMonoBehaviour<FTUEManager>
@@ -44,7 +45,7 @@ public class FTUEManager : SingletonMonoBehaviour<FTUEManager>
             TotalStagesNumber = m_stagesData.GetTotalStagesCount()
         });
 
-        OnSetFTUEHighlight?.Invoke(id);
+        StartCoroutine(UpdateHighlightComponents(id));
     }
 
     private void CompleteFTUEStage(string id)
@@ -67,5 +68,13 @@ public class FTUEManager : SingletonMonoBehaviour<FTUEManager>
         {
             PlayerPrefs.SetString(FTUE_PLAYER_PREFS_KEY, FTUE_COMPLETED_VALUE);
         }
+    }
+
+    private IEnumerator UpdateHighlightComponents(string id)
+    {
+        // Wait for frame to enable any highlight components in opening popups
+        yield return new WaitForEndOfFrame();
+
+        OnSetFTUEHighlight?.Invoke(id);
     }
 }
