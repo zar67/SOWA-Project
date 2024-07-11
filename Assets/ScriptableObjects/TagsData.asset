@@ -13,8 +13,24 @@ MonoBehaviour:
   m_Name: TagsData
   m_EditorClassIdentifier: 
   Tags:
+  - Polyethylene Terepthalate (PETE)
+  - High Density Polyethylene (HDPE)
+  - Polyvinyl Chloride (V or PVC)
+  - Low Density Polyethylene (LDPE)
+  - Polypropylene (PP)
+  - Polystyrene Foam (PS)
+  - Aluminium
+  - Aerosol
+  - Other
+  - Batteries
+  - Fabric
   - Plastic
   - Wood
-  - Wrapper
-  - Food
-  - Bottle
+  - Metal
+  - Electronic
+  - Oil
+  - Fuel
+  - Liquid
+  - Copper
+  - Steel
+  - Tetrapak
