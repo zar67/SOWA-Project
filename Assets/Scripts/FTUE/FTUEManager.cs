@@ -7,6 +7,7 @@ public class FTUEManager : SingletonMonoBehaviour<FTUEManager>
 
     [SerializeField] private FTUEStagesData m_stagesData;
 
+    private BasePopup m_currentFTUEPopup = null;
     private BasePopup m_currentOpenPopup = null;
 
     public void BeginFTUE()
@@ -31,23 +32,25 @@ public class FTUEManager : SingletonMonoBehaviour<FTUEManager>
             });
         }
 
-        PopupManager.Instance.OpenPopup(new FTUEPopupData()
+        m_currentFTUEPopup = PopupManager.Instance.OpenPopup(new FTUEPopupData()
         {
             Type = PopupType.FTUE_INFO,
             ShowCloseButton = true,
             CloseButtonAction = () => CompleteFTUEStage(id),
-            FTUEText = ftueStage.Text
+            FTUEText = ftueStage.Text,
+            CurrentStageNumber = m_stagesData.GetIndexOfStage(ftueStage.ID) + 1,
+            TotalStagesNumber = m_stagesData.GetTotalStagesCount()
         });
 
         // Highlight components
     }
 
-    public void CompleteFTUEStage(string id)
+    private void CompleteFTUEStage(string id)
     {
         FTUEStagesData.FTUEStage currentFTUEStage = m_stagesData.GetStageForID(id);
         FTUEStagesData.FTUEStage nextFTUEStage = m_stagesData.GetNextStage(id, out bool hasNextStage);
 
-        if (m_currentOpenPopup != null && nextFTUEStage.PopupType != currentFTUEStage.PopupType)
+        if (m_currentOpenPopup != null && (nextFTUEStage.PopupType != currentFTUEStage.PopupType || !hasNextStage))
         {
             m_currentOpenPopup.Close();
             m_currentOpenPopup = null;

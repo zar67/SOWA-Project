@@ -43,12 +43,23 @@ public class FTUEStagesData : ScriptableObject
         return m_stages[index];
     }
 
+    public int GetIndexOfStage(string id)
+    {
+        FTUEStage currentStage = GetStageForID(id);
+        int currentStageIndex = m_stages.IndexOf(currentStage);
+        return currentStageIndex;
+    }
+
+    public int GetTotalStagesCount()
+    {
+        return m_stages.Count;
+    }
+
     public FTUEStage GetNextStage(string currentStageID, out bool hasNextStage)
     {
         hasNextStage = false;
 
-        FTUEStage currentStage = GetStageForID(currentStageID);
-        int currentStageIndex = m_stages.IndexOf(currentStage);
+        int currentStageIndex = GetIndexOfStage(currentStageID);
         int nextStageIndex = currentStageIndex + 1;
 
         if (nextStageIndex >= m_stages.Count)

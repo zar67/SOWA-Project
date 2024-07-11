@@ -6,8 +6,9 @@ using UnityEngine;
 public class FTUEPopupData : BasePopupData
 {
     public string FTUEText;
+    public int CurrentStageNumber;
+    public int TotalStagesNumber;
 }
-
 
 public class FTUEInfoPopup : BasePopup
 {
@@ -15,6 +16,7 @@ public class FTUEInfoPopup : BasePopup
 
     [Header("Text References")]
     [SerializeField] protected TextMeshProUGUI m_ftueText;
+    [SerializeField] protected TextMeshProUGUI m_stageCountText;
 
     public override void Init(BasePopupData data)
     {
@@ -22,5 +24,7 @@ public class FTUEInfoPopup : BasePopup
 
         var ftueData = (FTUEPopupData)data;
         m_ftueText.text = ftueData.FTUEText;
+
+        m_stageCountText.text = $"{ftueData.CurrentStageNumber}/{ftueData.TotalStagesNumber}";
     }
 }
