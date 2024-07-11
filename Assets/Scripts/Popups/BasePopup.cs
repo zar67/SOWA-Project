@@ -9,7 +9,7 @@ public class BasePopupData
     public PopupType Type;
 
     public bool ShowCloseButton;
-    public UnityAction CloseButtonAction;
+    public Action CloseButtonAction;
 
     public Action OnOpenStarted;
     public Action OnOpenComplete;
@@ -68,7 +68,7 @@ public class BasePopup : MonoBehaviour
         {
             if (data.CloseButtonAction != null)
             {
-                m_closeButton.onClick.AddListener(data.CloseButtonAction);
+                m_closeButton.onClick.AddListener(() => data.CloseButtonAction());
             }
 
             m_closeButton.onClick.AddListener(Close);
@@ -78,6 +78,8 @@ public class BasePopup : MonoBehaviour
     public virtual void Open()
     {
         gameObject.SetActive(true);
+        transform.SetAsLastSibling();
+
         m_animator.SetTrigger(m_openTrigger);
 
         CurrentState = PopupState.OPENING;

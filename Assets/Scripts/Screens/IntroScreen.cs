@@ -125,5 +125,6 @@ public class IntroScreen : MonoBehaviour
     private void MoveToMap()
     {
         _ = SceneManager.UnloadSceneAsync("Intro");
+        FTUEManager.Instance.BeginFTUE();
     }
 }

@@ -9,6 +9,7 @@ public enum PopupType
     LITTER_RECORDING,
     SETTINGS,
     STATISTICS,
+    FTUE_INFO
 }
 
 public class PopupManager : SingletonMonoBehaviour<PopupManager>
@@ -32,7 +33,17 @@ public class PopupManager : SingletonMonoBehaviour<PopupManager>
         return false;
     }
 
-    public void OpenPopup(BasePopupData data)
+    public bool HasOpenPopup(PopupType type)
+    {
+        if (!m_openPopups.ContainsKey(type))
+        {
+            return false;
+        }
+
+        return m_openPopups[type].Count > 0;
+    }
+
+    public BasePopup OpenPopup(BasePopupData data)
     {
         if (!m_closedPopups.ContainsKey(data.Type))
         {
@@ -45,7 +56,7 @@ public class PopupManager : SingletonMonoBehaviour<PopupManager>
             if (!instantiated)
             {
                 Debug.LogError($"Could not open popup of type {data.Type}: Failed to instantiate new popup.");
-                return;
+                return null;
             }
         }
 
@@ -63,6 +74,8 @@ public class PopupManager : SingletonMonoBehaviour<PopupManager>
 
         popupToOpen.Init(data);
         popupToOpen.Open();
+
+        return popupToOpen;
     }
 
     protected override void Awake()
