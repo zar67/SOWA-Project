@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -9,7 +10,7 @@ public class BasePopupData
     public PopupType Type;
 
     public bool ShowCloseButton;
-    public Action CloseButtonAction;
+    public Dictionary<string, Action> CloseResultActions = new Dictionary<string, Action>();
 
     public Action OnOpenStarted;
     public Action OnOpenComplete;
@@ -19,6 +20,8 @@ public class BasePopupData
 
 public class BasePopup : MonoBehaviour
 {
+    public const string CLOSE_RESULT_CLOSE_BUTTON = "close";
+
     public enum PopupState
     {
         CLOSED,
@@ -26,11 +29,6 @@ public class BasePopup : MonoBehaviour
         OPEN,
         CLOSING,
     }
-
-    protected event Action OnOpenStarted;
-    protected event Action OnOpenComplete;
-    protected event Action OnCloseStarted;
-    protected event Action OnCloseComplete;
 
     [Header("Animation References")]
     [SerializeField] protected Animator m_animator;
@@ -40,6 +38,13 @@ public class BasePopup : MonoBehaviour
     [Header("Close Button References")]
     [SerializeField] protected GameObject m_closeButtonHolder;
     [SerializeField] protected Button m_closeButton;
+
+    protected event Action OnOpenStarted;
+    protected event Action OnOpenComplete;
+    protected event Action OnCloseStarted;
+    protected event Action OnCloseComplete;
+
+    protected Dictionary<string, Action> m_closeResultActions = new Dictionary<string, Action>();
 
     public virtual PopupType Type => PopupType.NONE;
 
@@ -62,16 +67,18 @@ public class BasePopup : MonoBehaviour
         OnCloseStarted = data.OnCloseStarted;
         OnCloseComplete = data.OnCloseComplete;
 
+        m_closeResultActions = data.CloseResultActions;
+
         m_closeButtonHolder.SetActive(data.ShowCloseButton);
 
         if (data.ShowCloseButton)
         {
-            if (data.CloseButtonAction != null)
+            if (data.CloseResultActions.ContainsKey(CLOSE_RESULT_CLOSE_BUTTON))
             {
-                m_closeButton.onClick.AddListener(() => data.CloseButtonAction());
+                m_closeButton.onClick.AddListener(() => data.CloseResultActions[CLOSE_RESULT_CLOSE_BUTTON]?.Invoke());
             }
 
-            m_closeButton.onClick.AddListener(Close);
+            m_closeButton.onClick.AddListener(() => Close(CLOSE_RESULT_CLOSE_BUTTON));
         }
     }
 
@@ -86,12 +93,17 @@ public class BasePopup : MonoBehaviour
         OnOpenStarted?.Invoke();
     }
 
-    public virtual void Close()
+    public virtual void Close(string closeResult = CLOSE_RESULT_CLOSE_BUTTON)
     {
         m_animator.SetTrigger(m_closeTrigger);
 
         CurrentState = PopupState.CLOSING;
         OnCloseStarted?.Invoke();
+
+        if (closeResult != null && !string.IsNullOrWhiteSpace(closeResult) && m_closeResultActions.ContainsKey(closeResult))
+        {
+            m_closeResultActions[closeResult]?.Invoke();
+        }
     }
 
     // Called by the animator when the open animation is complete.

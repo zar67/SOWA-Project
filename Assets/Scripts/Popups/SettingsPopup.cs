@@ -26,7 +26,7 @@ public class SettingsPopup : BasePopup
         m_locationPinsToggle.onValueChanged.AddListener(LocationPinsToggleChanged);
     }
 
-    public override void Close()
+    public override void Close(string closeResult)
     {
         base.Close();
 

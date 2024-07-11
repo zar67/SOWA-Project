@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class LitterRecordingPopup : BasePopup
 {
+    public const string CLOSE_RESULT_ADD_LITTER = "add_litter";
+
     [Header("Content References")]
     [SerializeField] private RectTransform m_content;
 
@@ -68,8 +70,7 @@ public class LitterRecordingPopup : BasePopup
     {
         LitterRecordingManager.Instance.RecordLitter(m_currentTags.ToArray());
         StatisticRecordingManager.Instance.RecordStatistics(m_currentTags.ToArray());
-        Close();
-
+        Close(CLOSE_RESULT_ADD_LITTER);
     }
 
     private void ChangeLocation()

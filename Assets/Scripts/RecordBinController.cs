@@ -30,7 +30,8 @@ public class RecordBinController : MonoBehaviour
                 {
                     Text = "Record New Bin",
                     CloseOnClick = true,
-                    Action = BinRecordingManager.Instance.RequestNewBinLocation
+                    Action = BinRecordingManager.Instance.RequestNewBinLocation,
+                    CloseResult = "add_bin"
                 }
             }
         });

@@ -17,6 +17,7 @@ public class PopupButtonData
     public string Text;
     public UnityAction Action;
     public bool CloseOnClick;
+    public string CloseResult;
 }
 
 public class GenericInfoPopup : BasePopup
@@ -59,10 +60,11 @@ public class GenericInfoPopup : BasePopup
                     button.Button.onClick.AddListener(infoData.ButtonDatas[i].Action);
                 }
                 button.Text.text = infoData.ButtonDatas[i].Text;
+                string closeResult = infoData.ButtonDatas[i].CloseResult;
 
                 if (infoData.ButtonDatas[i].CloseOnClick)
                 {
-                    button.Button.onClick.AddListener(Close);
+                    button.Button.onClick.AddListener(() => Close(closeResult));
                 }
             }
             else

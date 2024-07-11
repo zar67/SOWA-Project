@@ -39,7 +39,10 @@ public class FTUEManager : SingletonMonoBehaviour<FTUEManager>
         {
             Type = PopupType.FTUE_INFO,
             ShowCloseButton = true,
-            CloseButtonAction = () => CompleteFTUEStage(id),
+            CloseResultActions = new System.Collections.Generic.Dictionary<string, Action>()
+            {
+                { BasePopup.CLOSE_RESULT_CLOSE_BUTTON, () => CompleteFTUEStage(id)}
+            },
             FTUEText = ftueStage.Text,
             CurrentStageNumber = m_stagesData.GetIndexOfStage(ftueStage.ID) + 1,
             TotalStagesNumber = m_stagesData.GetTotalStagesCount()

@@ -38,7 +38,10 @@ public class MapScreen : MonoBehaviour
         {
             Type = PopupType.LITTER_RECORDING,
             ShowCloseButton = true,
-            OnCloseStarted = HandleCloseRecordingPopup
+            CloseResultActions = new System.Collections.Generic.Dictionary<string, System.Action>()
+            {
+                { LitterRecordingPopup.CLOSE_RESULT_ADD_LITTER, HandleCloseRecordingPopup }
+            }
         });
     }
 
