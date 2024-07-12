@@ -45,6 +45,8 @@ public class TagManagementPopup : BasePopup
                 firstCategory = category.ID;
             }
         }
+        
+        PopulateWithCategory(firstCategory);
     }
 
     public override void Open()
