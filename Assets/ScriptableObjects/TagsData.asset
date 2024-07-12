@@ -12,25 +12,143 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbc06567a7b82c540ae6c12b82c8fb5d, type: 3}
   m_Name: TagsData
   m_EditorClassIdentifier: 
-  Tags:
-  - Polyethylene Terepthalate (PETE)
-  - High Density Polyethylene (HDPE)
-  - Polyvinyl Chloride (V or PVC)
-  - Low Density Polyethylene (LDPE)
-  - Polypropylene (PP)
-  - Polystyrene Foam (PS)
-  - Aluminium
-  - Aerosol
-  - Other
-  - Batteries
-  - Fabric
-  - Plastic
-  - Wood
-  - Metal
-  - Electronic
-  - Oil
-  - Fuel
-  - Liquid
-  - Copper
-  - Steel
-  - Tetrapak
+  m_tagCategories:
+  - ID: Plastic
+    TagData:
+    - ID: Polyethylene Terepthalate (PET)
+      RecycleNumber: 01
+      RecycleAbbreviation: PET
+    - ID: High Density Polyethylene (HDPE)
+      RecycleNumber: 02
+      RecycleAbbreviation: HDPE
+    - ID: High Density Polyethylene (PE-HD)
+      RecycleNumber: 02
+      RecycleAbbreviation: PE-HD
+    - ID: Polyvinyl Chloride (V)
+      RecycleNumber: 03
+      RecycleAbbreviation: V
+    - ID: Polyvinyl Chloride (PVC)
+      RecycleNumber: 03
+      RecycleAbbreviation: PVC
+    - ID: Low Density Polyethylene (LDPE)
+      RecycleNumber: 04
+      RecycleAbbreviation: LDPE
+    - ID: Low Density Polyethylene (PE-LD)
+      RecycleNumber: 04
+      RecycleAbbreviation: PE-LD
+    - ID: Polypropylene (PP)
+      RecycleNumber: 05
+      RecycleAbbreviation: PP
+    - ID: Polystyrene Foam (PS)
+      RecycleNumber: 06
+      RecycleAbbreviation: PS
+    - ID: Plastic (Other)
+      RecycleNumber: 07
+      RecycleAbbreviation: Other
+    - ID: Acrylonitrile Butadiene Styrene (ABS)
+      RecycleNumber: ABS
+      RecycleAbbreviation: 
+    - ID: Polyamide Nylon (PA)
+      RecycleNumber: PA
+      RecycleAbbreviation: 
+  - ID: Batteries
+    TagData:
+    - ID: Lead-Acid Battery
+      RecycleNumber: 08
+      RecycleAbbreviation: 
+    - ID: Alkaline Battery
+      RecycleNumber: 09
+      RecycleAbbreviation: 
+    - ID: Nickel-Cadmium Battery (NiCD)
+      RecycleNumber: 10
+      RecycleAbbreviation: 
+    - ID: Nickel-Metal Battery (NiMH)
+      RecycleNumber: 11
+      RecycleAbbreviation: 
+    - ID: Lithium Battery (Li)
+      RecycleNumber: 12
+      RecycleAbbreviation: 
+    - ID: Silver-Oxide Battery (SO(Z))
+      RecycleNumber: 13
+      RecycleAbbreviation: 
+    - ID: Zinc-Carbon Battery (CZ)
+      RecycleNumber: 14
+      RecycleAbbreviation: 
+  - ID: Paper
+    TagData:
+    - ID: Cardboard (PAP)
+      RecycleNumber: 20
+      RecycleAbbreviation: PAP
+    - ID: Paperboard (PAP)
+      RecycleNumber: 21
+      RecycleAbbreviation: PAP
+    - ID: Paper (PAP)
+      RecycleNumber: 22
+      RecycleAbbreviation: PAP
+  - ID: Metal
+    TagData:
+    - ID: Steel (FE)
+      RecycleNumber: 40
+      RecycleAbbreviation: FE
+    - ID: Aluminium (ALU)
+      RecycleNumber: 41
+      RecycleAbbreviation: ALU
+  - ID: Natural
+    TagData:
+    - ID: Wood (FOR)
+      RecycleNumber: 50
+      RecycleAbbreviation: FOR
+    - ID: Cork (FOR)
+      RecycleNumber: 51
+      RecycleAbbreviation: FOR
+    - ID: Cotton (TEX)
+      RecycleNumber: 60
+      RecycleAbbreviation: TEX
+    - ID: Jute (TEX)
+      RecycleNumber: 61
+      RecycleAbbreviation: TEX
+    - ID: Textiles (Other)
+      RecycleNumber: 62
+      RecycleAbbreviation: TEX
+  - ID: Glass
+    TagData:
+    - ID: Clear Glass (GL)
+      RecycleNumber: 70
+      RecycleAbbreviation: GL
+    - ID: Green Glass (GL)
+      RecycleNumber: 71
+      RecycleAbbreviation: GL
+    - ID: Brown Glass (GL)
+      RecycleNumber: 72
+      RecycleAbbreviation: GL
+    - ID: Dark Sort Glass (GL)
+      RecycleNumber: 73
+      RecycleAbbreviation: GL
+    - ID: Light Sort Glass (GL)
+      RecycleNumber: 74
+      RecycleAbbreviation: GL
+    - ID: Light Leaded Glass (GL)
+      RecycleNumber: 75
+      RecycleAbbreviation: GL
+    - ID: Leaded Glass (GL)
+      RecycleNumber: 76
+      RecycleAbbreviation: GL
+    - ID: Copper Mixed Glass (GL)
+      RecycleNumber: 77
+      RecycleAbbreviation: GL
+    - ID: Copper Backed Glass (GL)
+      RecycleNumber: 77
+      RecycleAbbreviation: GL
+    - ID: Silver Mixed Glass (GL)
+      RecycleNumber: 78
+      RecycleAbbreviation: GL
+    - ID: Silver Backed Glass (GL)
+      RecycleNumber: 78
+      RecycleAbbreviation: GL
+    - ID: Gold Mixed Glass (GL)
+      RecycleNumber: 79
+      RecycleAbbreviation: GL
+    - ID: Gold Backed Glass (GL)
+      RecycleNumber: 79
+      RecycleAbbreviation: GL
+  m_tagsData: []

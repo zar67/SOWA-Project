@@ -1,6 +1,5 @@
-using Extensions;
-using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,56 +13,33 @@ public class LitterRecordingPopup : BasePopup
     [Header("Add Button References")]
     [SerializeField] private Button m_addButton;
 
-    [Header("Location References")]
-    [SerializeField] private Button m_changeLocationButton;
-
     [Header("Tags References")]
     [SerializeField] private TagsData m_tagsData;
-    [SerializeField] private SearchableDropDown m_searchableInputField;
-    [SerializeField] private TagObject m_tagPrefab;
-    [SerializeField] private LayoutGroup[] m_tagsLayoutGroups;
-    [SerializeField] private Transform m_tagsHolder;
+    [SerializeField] private Button m_manageTagsButton;
+    [SerializeField] private TextMeshProUGUI m_totalTagsText;
 
-    private List<string> m_availableTags = new List<string>();
     private List<string> m_currentTags = new List<string>();
 
     public override PopupType Type => PopupType.LITTER_RECORDING;
 
-    private void Awake()
-    {
-        m_tagsHolder.DestroyChildren();
-    }
-
     private void OnEnable()
     {
         m_addButton.onClick.AddListener(RecordLitterAndClose);
-        m_changeLocationButton.onClick.AddListener(ChangeLocation);
+        m_manageTagsButton.onClick.AddListener(OpenTagManagementPopup);
 
-        m_searchableInputField.OnSelect += HandleInputFieldSelected;
-        m_searchableInputField.OnDeselect += HandleInputFieldDeselected;
-        m_searchableInputField.OnValueChanged += HandleTagAdded;
+        TagObject.AddTagClicked += HandleTagAdded;
+        TagObject.RemoveTagClicked += HandleTagRemoved;
 
-        TagObject.RemoveTagClicked += HandleRemoveTagClicked;
-
-        m_availableTags = new List<string>(m_tagsData.Tags);
-        m_availableTags.Sort();
-        m_currentTags = new List<string>();
-
-        m_tagsHolder.DestroyChildren();
-        m_searchableInputField.Clear();
-        m_searchableInputField.SetOptions(m_availableTags.ToArray());
+        m_totalTagsText.text = $"0 Selected";
     }
 
     private void OnDisable()
     {
         m_addButton.onClick.RemoveListener(RecordLitterAndClose);
-        m_changeLocationButton.onClick.RemoveListener(ChangeLocation);
+        m_manageTagsButton.onClick.RemoveListener(OpenTagManagementPopup);
 
-        m_searchableInputField.OnSelect -= HandleInputFieldSelected;
-        m_searchableInputField.OnDeselect -= HandleInputFieldDeselected;
-        m_searchableInputField.OnValueChanged -= HandleTagAdded;
-
-        TagObject.RemoveTagClicked -= HandleRemoveTagClicked;
+        TagObject.AddTagClicked -= HandleTagAdded;
+        TagObject.RemoveTagClicked -= HandleTagRemoved;
     }
 
     private void RecordLitterAndClose()
@@ -71,70 +47,35 @@ public class LitterRecordingPopup : BasePopup
         LitterRecordingManager.Instance.RecordLitter(m_currentTags.ToArray());
         StatisticRecordingManager.Instance.RecordStatistics(m_currentTags.ToArray());
         Close(CLOSE_RESULT_ADD_LITTER);
+
+        m_currentTags = new List<string>();
     }
 
-    private void ChangeLocation()
+    private void OpenTagManagementPopup()
     {
-        // For future, add the ability to input a specific location.
-    }
-
-    private void HandleInputFieldSelected()
-    {
-        var position = m_content.localPosition;
-        position.y += m_content.rect.height / 2;
-        m_content.localPosition = position;
-    }
-
-    private void HandleInputFieldDeselected()
-    {
-        m_content.localPosition = Vector2.zero;
+        PopupManager.Instance.OpenPopup(new TagManagementPopupData()
+        {
+            ShowCloseButton = true,
+            ActiveTags = m_currentTags,
+            Type = PopupType.TAG_MANAGEMENT
+        });
     }
 
     private void HandleTagAdded(string tag)
     {
-        HandleInputFieldDeselected();
-
-        TagObject newTag = Instantiate(m_tagPrefab, m_tagsHolder);
-        newTag.PopulateTag(tag);
-
         if (!m_currentTags.Contains(tag))
         {
             m_currentTags.Add(tag);
+            m_totalTagsText.text = $"{m_currentTags.Count} Selected";
         }
-
-        m_availableTags.Remove(tag);
-        m_searchableInputField.SetOptions(m_availableTags.ToArray());
-
-        StartCoroutine(RefreshTagsLayout());
     }
 
-    private void HandleRemoveTagClicked(string tag)
+    private void HandleTagRemoved(string tag)
     {
-        m_currentTags.Remove(tag);
-
-        if (!m_availableTags.Contains(tag))
+        if (m_currentTags.Contains(tag))
         {
-            m_availableTags.Add(tag);
-            m_availableTags.Sort();
-            m_searchableInputField.SetOptions(m_availableTags.ToArray());
-        }
-
-        StartCoroutine(RefreshTagsLayout());
-    }
-
-    private IEnumerator RefreshTagsLayout()
-    {
-        foreach (LayoutGroup layoutGroup in m_tagsLayoutGroups)
-        {
-            layoutGroup.enabled = false;
-        }
-
-        yield return new WaitForEndOfFrame();
-        yield return new WaitForEndOfFrame();
-
-        foreach (LayoutGroup layoutGroup in m_tagsLayoutGroups)
-        {
-            layoutGroup.enabled = true;
+            m_currentTags.Remove(tag);
+            m_totalTagsText.text = $"{m_currentTags.Count} Selected";
         }
     }
 }

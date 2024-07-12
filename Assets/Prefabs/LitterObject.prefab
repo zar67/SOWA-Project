@@ -659,6 +659,7 @@ MonoBehaviour:
   m_text: {fileID: 6485483461394813998}
   m_toolTipHolder: {fileID: 703588955948511928}
   m_timestampText: {fileID: 7503335953264520476}
+  m_tagsData: {fileID: 11400000, guid: 6187b60f7893e2a489f6b8aa27496563, type: 2}
   m_tagPrefab: {fileID: 487362653049979808, guid: 822385b040147844dbf98005d68d7e4d, type: 3}
   m_tagsLayoutGroups:
   - {fileID: 5795399587233187042}

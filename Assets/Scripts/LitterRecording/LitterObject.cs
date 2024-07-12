@@ -1,7 +1,6 @@
 using Extensions;
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -16,6 +15,7 @@ public class LitterObject : MonoBehaviour
     [SerializeField] private GameObject m_toolTipHolder;
     [SerializeField] private TextMeshProUGUI m_timestampText;
 
+    [SerializeField] private TagsData m_tagsData;
     [SerializeField] private TagObject m_tagPrefab;
     [SerializeField] private LayoutGroup[] m_tagsLayoutGroups;
     [SerializeField] private Transform m_tagsHolder;
@@ -52,7 +52,7 @@ public class LitterObject : MonoBehaviour
         foreach (string tag in data.Tags)
         {
             TagObject newTag = Instantiate(m_tagPrefab, m_tagsHolder);
-            newTag.PopulateTag(tag);
+            newTag.PopulateTag(m_tagsData.GetDataForTagID(tag));
         }
     }
 
