@@ -53,6 +53,11 @@ public class TagsData : ScriptableObject
         }
     }
 
+    public TagCategoryData GetTagCategoryForID(string id)
+    {
+        return m_categoryMap[id];
+    }
+
     public TagData GetDataForTagID(string id)
     {
         return m_tagsMap[id];
