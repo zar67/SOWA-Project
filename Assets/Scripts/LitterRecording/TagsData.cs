@@ -58,6 +58,22 @@ public class TagsData : ScriptableObject
         return m_categoryMap[id];
     }
 
+    public TagCategoryData GetTagCategoryForTagID(string id)
+    {
+        foreach (TagCategoryData category in m_tagCategories)
+        {
+            foreach (TagData tag in category.TagData)
+            {
+                if (tag.ID == id)
+                {
+                    return category;
+                }
+            }
+        }
+
+        return default;
+    }
+
     public TagData GetDataForTagID(string id)
     {
         return m_tagsMap[id];

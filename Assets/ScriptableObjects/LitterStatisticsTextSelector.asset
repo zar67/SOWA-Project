@@ -12,109 +12,110 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 372154b32b49ada49a215cdce02ae0c1, type: 3}
   m_Name: LitterStatisticsTextSelector
   m_EditorClassIdentifier: 
-  m_texts:
-  - A report released by the Department for Environment, Food and Rural Affairs (DEFRA), revealed that British households create over 26m tonnes of waste each year, the weight of around 260 large cruise ships. 
-  - The average person in the UK throws away around 400kg of waste each year; 7 times their body weight.
-  - Of the 26m tonnes of waste produced in the UK, 12m tonnes are recycled, and 14m tonnes are sent to landfill sites. This gives us an average recycling rate of 45%.
-  - While we recycle around 44% of our waste in England, some of our neighbours are doing better, with Wales recycling 57% of its waste and Northern Ireland recycling 46%. Scotland falls slightly behind England, recycling 43% of household waste.
-  - Germany, Austria, and South Korea remain world-leaders when it comes to recycling household waste, recycling 60 – 70%.
-  - Recycling a single aluminium can will save enough energy to power a TV for up to three hours or an iPod for up to twenty hours.
-  - Recycling everything you could in your kitchen recycling bins could power a TV for six months.
-  - Recycling a single glass bottle will save enough energy to power a laptop for half an hour.
-  - Recycling a single plastic bottle will save enough energy to power a lightbulb for three hours or more.
-  - Recycling five plastic bottles creates enough insulating fibre to fill a ski jacket.
-  - It takes 70% less energy to recycle paper than it does to make it new from raw materials.
-  - UK households create 7m tonnes of food waste each year, that’s a kilo of food for every person on the plant. This equates to £7.5billion pounds worth of food waste.
-  - It is believed that 50% of all food waste is still edible, and could be ‘recycled’ through food banks, charities, and making animal feed.
-  - It takes a hundred buckets of water to create just one loaf of bread and six buckets of water to grow one potato.
-  - 50% of the food waste we throw in the bin could be composted.
-  - As much as 80% of the things we throw away could be recycled.
-  - Even cars can be recycled, with up to 80% of the vehicle being reused.
-  - More than 15% of the money we spend on products pays for packaging – most of which ends up in the dustbin.
-  - It is estimated that we throw away over 600m batteries in the UK each year.
-  - Only 27% of batteries are recycled in the UK, resulting in more than 20,000 tonnes of battery waste straight to the landfill.
-  - It takes fifty times more energy to make a battery than the finished product produces.
-  - In the UK, we disposal of around 80 million fluorescent tubes each year. If we were to recycle those tubes, we could reuse up to 4 tonnes of mercury – a natural resource.
-  - Waste Electrical and Electronic Equipment (WEEE) is the fastest growing waste stream in the UK.
-  - According to the Waste and Resources Action Programme (WRAP), 25% of our WEEE waste could be repaired and re-used.
-  - Most of the two million TV sets discarded each year end up in UK landfill sites, despite being accepted at many recycling centres across the country.
-  - It takes 95% less energy to recycle aluminium cans than it does to make new ones.
-  - Of the 24 million tonnes of aluminium produced annually in the UK, 51,000 tonnes ends up as packaging for food and drinks.
-  - 90% of all drinks cans in the UK are made from aluminium. If we recycled all those aluminium cans, we would need 14 million fewer dustbins.
-  - Aluminium cans are easy to recycle. Each can you place in a recycling bin can be back on the shelf within 60 days.
-  - The average UK household uses over 600 aluminium cans each year. Times that by 27 million households, and you’re looking at 16.2 billion cans!
-  - It takes the same amount of energy to make one new aluminium can as it does to recycle 20.
-  - Aluminium can be recycled numerous time without loss of quality.
-  - 75% of the aluminium ever made is still in production today.
-  - Steel cans are 100% recyclable. They can be recycled into more steel cans, bicycles, car parts, and other everyday products.
-  - Over 80 million aluminium and steel cans are sent to UK landfills every day.
-  - Aluminium cans are worth up to 20 times more than other packaging materials. Estimates suggest that at any one time, there are over £30 million worth of cans waiting to be collected and recycled.
-  - If UK consumers were to line up the number of cans they use each year, the line would reach the moon and back.
-  - Around £36 million worth of aluminium is sent to landfill each year. But it is still the world's most recycled packaging material, with 72% of the cans sold in the UK being recycled.
-  - If all the aluminium drinks cans recycled in the UK were laid end to end, they could orbit the earth 30 times.
-  - Brazil recycles more than 98% of its aluminium, while Japan recycles just over 82%, but it is Finland and Germany who are world-leaders, recycling an incredible 99% of their aluminium waste.
-  - Recycling just one tonne of aluminium saves up to 9 tonnes of CO2 emissions.
-  - Worldwide, 4 billion trees are cut down every year for paper. That’s one per cent of the Amazon Rainforest – every single year.
-  - It takes 24 trees to make one tonne of paper.
-  - In the UK, we use over 9.9 million tonnes of paper each year.
-  - We recycle around 80% of paper in the UK.
-  - Each tonne of recycled paper saves 380 gallons of oil, 7000 gallons of water, and around 3 cubic metres of landfill space.
-  - It takes around 10 litres of water to make just one sheet of A4 paper.
-  - In the USA, paper recycling increased by almost 90% between 1990 and 2010.
-  - By recycling your daily newspaper, you can save your own body weight in paper in just one year.
-  - It takes 60% less energy to recycle paper than it does to make it from raw materials.
-  - Every Christmas, it is estimated that we throw away over 227 thousand miles rolls of wrapping paper in the UK. That’s enough to cover over 11,000 football pitches.
-  - The average family in the UK throws away 6 trees worth of paper every year.
-  - Paper and card account for 1/5 of all waste produced in the UK. However, paper remains one of the most recycled materials in the UK today.
-  - In Europe, paper is recycled on average 3.8 times, which is above the world average of 2.4 times.
-  - 55% of the fibre used by the European Paper Industry comes from recycled paper.
-  - Many types of plastics are recyclable.But it takes up to 500 years for plastic to fully decompose.
-  - We make and use 20 times more plastic today than we did 50 years ago.
-  - Plastic consumption grows by around 4% each year in Western Europe. That might not sound a lot, but it means that within 20 years we will have doubled our current plastic use.
-  - Every year, we throw away enough plastic to circle the world 5 times.
-  - Most UK households throw away at least 40kg of plastic each year. Enough to make 10 recycle bins. Just imagine how much waste businesses throw away, which is why commercial recycling bins are so important.
-  - Nationwide, we use 7.7 billion plastic bottles per year. That’s an average of 117 bottles per person, per year.
-  - Despite a ‘War on Plastic’ we recycle just 45% of plastics in the UK. That means 55% of all our plastic waste ends up in landfills, or indeed, the ocean.
-  - 8 million tonnes of the world’s plastics end up in our oceans each year, creating a garbage patch three times the size of France.
-  - Plastics from items such as carrier bags and bottles that end up in our oceans kill around 1,000,000 sea creatures every year.
-  - Plastic rubbish in the British countryside kills thousands of land animals every year.
-  - We generate around 5 million tonnes of plastic each year in the UK. That includes 15 million ‘single use’ plastic bottles per day.
-  - It takes one tonne of plastic to make 20,000 plastic bottles.
-  - Americans throw away 2,500,000 plastic bottles EVERY HOUR on average.
-  - Recycled plastic can be used to make clothing. You can make a t-shirt with 5 plastic bottles and an adults fleece jacket with just 25 plastic bottles.
-  - It takes one tonne of plastic to make 120,000 plastic carrier bags.
-  - We use 13 billion carrier bags in the UK each year. The majority of these plastic shopping bags are only used once and take up to 100 years to decompose.
-  - You could drive a car 11 metres on the oil it takes to make 1 plastic bag.
-  - Plastic bags are banned in many parts of Asia and Africa, and there are partial bans in other parts of the world.
-  - In 2015, the UK introduced a ‘5p carrier bag tax’ to reduce our plastic bag consumption. And it worked. We now use around 83% fewer single-use bags than we did in 2014.
-  - It takes a tonne of glass to make around 4000 bottles or jars.
-  - The average UK household uses 500 glass bottles and jars every year.
-  - Glass is 100% recyclable and can be reused over and over again, without losing quality.
-  - The UK recycles around 50% of its glass. While countries such as Finland and Switzerland recycle more than 90% of theirs.
-  - Glass does not decompose and so it puts a great strain on landfills.
-  - More than 28 billion glass bottles and jars end up in landfills every year, which is the equivalent to the Empire State Building filling up every 3 weeks.
-  - Milk bottles are used an average of 13 times before being recycled in the UK.
-  - It takes less energy to recycle glass than it does to make new glass from raw materials. In fact, the glass recycling level in the UK saves enough energy to launch 10 space shuttle missions.
-  - Every tonne of glass recycled saves 246 kg of CO2 emissions.
-  - Clear glass bottles contain around 25% recycled glass, whereas green bottles contain as much as 90% recycled glass.
-  - The UK has more than 50,000 bottle banks, and each bank is capable of holding 3,000 bottles, yet 5 out of every 6 glass bottles are thrown away.
-  - Our largest glass furnaces produce more a million glass bottles every day.
-  - A tonne of recycled glass saves over a tonne of natural resources.
-  - The average UK household throws away 20% of all food purchased.
-  - It is estimated that over 8 million people in the UK are struggling to afford to eat, yet UK households throw away around 7 million tonnes food every year. This equates to around £700 per household in food waste – an annual utility bill.
-  - Of the 7 million tonnes of food waste thrown away, 250,000 tonnes is perfectly edible and could be used to make up to 650 million meals for those in need.
-  - The average person throws away 74kg of food waste each year, the weight of over 1000 banana skins.
-  - Most of the food that ends up in landfills could be recycled to make animal feed, or even energy by converting the gas it releases into electricity and heat.
-  - At least 50% of food waste could be composted.
-  - Waste cooking oil is one of the most common causes of water pollution.
-  - 1 litre of used cooking oil can pollute up to 1 million litres of water drinking water.
-  - The UK throws away 1.4 million untouched bananas every day.
-  - The UK throws away 3 million unopened yoghurts each day.
-  - The UK throws away 600,000 whole uncooked eggs every day.
-  - The UK throws away 2 million untouched sausages every day.
-  - The UK throws away 20 million slices of bread every day.
-  - In the landfill, food waste releases methane, a damaging greenhouse gas.
-  - We can cut our CO2 emissions and reduce our carbon footprint by up to 25% by simply recycling or composting our food waste.
-  - We could feed over a billion hungry people with less than a quarter of the food wasted in the UK, the United States, and Europe.
-  - It is estimated that we waste more than 30% of all food produced globally.
-  - We use 25% of the worlds fresh water supply to grow food that we will send to the landfill.
+  m_defaultTexts:
+    - A report released by the Department for Environment, Food and Rural Affairs (DEFRA), revealed that British households create over 26m tonnes of waste each year, the weight of around 260 large cruise ships. 
+    - The average person in the UK throws away around 400kg of waste each year; 7 times their body weight.
+    - Of the 26m tonnes of waste produced in the UK, 12m tonnes are recycled, and 14m tonnes are sent to landfill sites. This gives us an average recycling rate of 45%.
+    - While we recycle around 44% of our waste in England, some of our neighbours are doing better, with Wales recycling 57% of its waste and Northern Ireland recycling 46%. Scotland falls slightly behind England, recycling 43% of household waste.
+    - Germany, Austria, and South Korea remain world-leaders when it comes to recycling household waste, recycling 60 – 70%.
+    - Recycling a single aluminium can will save enough energy to power a TV for up to three hours or an iPod for up to twenty hours.
+    - Recycling everything you could in your kitchen recycling bins could power a TV for six months.
+    - Recycling a single glass bottle will save enough energy to power a laptop for half an hour.
+    - Recycling a single plastic bottle will save enough energy to power a lightbulb for three hours or more.
+    - Recycling five plastic bottles creates enough insulating fibre to fill a ski jacket.
+    - It takes 70% less energy to recycle paper than it does to make it new from raw materials.
+    - UK households create 7m tonnes of food waste each year, that’s a kilo of food for every person on the plant. This equates to £7.5billion pounds worth of food waste.
+    - It is believed that 50% of all food waste is still edible, and could be ‘recycled’ through food banks, charities, and making animal feed.
+    - It takes a hundred buckets of water to create just one loaf of bread and six buckets of water to grow one potato.
+    - 50% of the food waste we throw in the bin could be composted.
+    - As much as 80% of the things we throw away could be recycled.
+    - Even cars can be recycled, with up to 80% of the vehicle being reused.
+    - More than 15% of the money we spend on products pays for packaging – most of which ends up in the dustbin.
+    - It is estimated that we throw away over 600m batteries in the UK each year.
+    - Only 27% of batteries are recycled in the UK, resulting in more than 20,000 tonnes of battery waste straight to the landfill.
+    - It takes fifty times more energy to make a battery than the finished product produces.
+    - In the UK, we disposal of around 80 million fluorescent tubes each year. If we were to recycle those tubes, we could reuse up to 4 tonnes of mercury – a natural resource.
+    - Waste Electrical and Electronic Equipment (WEEE) is the fastest growing waste stream in the UK.
+    - According to the Waste and Resources Action Programme (WRAP), 25% of our WEEE waste could be repaired and re-used.
+    - Most of the two million TV sets discarded each year end up in UK landfill sites, despite being accepted at many recycling centres across the country.
+    - It takes 95% less energy to recycle aluminium cans than it does to make new ones.
+    - Of the 24 million tonnes of aluminium produced annually in the UK, 51,000 tonnes ends up as packaging for food and drinks.
+    - 90% of all drinks cans in the UK are made from aluminium. If we recycled all those aluminium cans, we would need 14 million fewer dustbins.
+    - Aluminium cans are easy to recycle. Each can you place in a recycling bin can be back on the shelf within 60 days.
+    - The average UK household uses over 600 aluminium cans each year. Times that by 27 million households, and you’re looking at 16.2 billion cans!
+    - It takes the same amount of energy to make one new aluminium can as it does to recycle 20.
+    - Aluminium can be recycled numerous time without loss of quality.
+    - 75% of the aluminium ever made is still in production today.
+    - Steel cans are 100% recyclable. They can be recycled into more steel cans, bicycles, car parts, and other everyday products.
+    - Over 80 million aluminium and steel cans are sent to UK landfills every day.
+    - Aluminium cans are worth up to 20 times more than other packaging materials. Estimates suggest that at any one time, there are over £30 million worth of cans waiting to be collected and recycled.
+    - If UK consumers were to line up the number of cans they use each year, the line would reach the moon and back.
+    - Around £36 million worth of aluminium is sent to landfill each year. But it is still the world's most recycled packaging material, with 72% of the cans sold in the UK being recycled.
+    - If all the aluminium drinks cans recycled in the UK were laid end to end, they could orbit the earth 30 times.
+    - Brazil recycles more than 98% of its aluminium, while Japan recycles just over 82%, but it is Finland and Germany who are world-leaders, recycling an incredible 99% of their aluminium waste.
+    - Recycling just one tonne of aluminium saves up to 9 tonnes of CO2 emissions.
+    - Worldwide, 4 billion trees are cut down every year for paper. That’s one per cent of the Amazon Rainforest – every single year.
+    - It takes 24 trees to make one tonne of paper.
+    - In the UK, we use over 9.9 million tonnes of paper each year.
+    - We recycle around 80% of paper in the UK.
+    - Each tonne of recycled paper saves 380 gallons of oil, 7000 gallons of water, and around 3 cubic metres of landfill space.
+    - It takes around 10 litres of water to make just one sheet of A4 paper.
+    - In the USA, paper recycling increased by almost 90% between 1990 and 2010.
+    - By recycling your daily newspaper, you can save your own body weight in paper in just one year.
+    - It takes 60% less energy to recycle paper than it does to make it from raw materials.
+    - Every Christmas, it is estimated that we throw away over 227 thousand miles rolls of wrapping paper in the UK. That’s enough to cover over 11,000 football pitches.
+    - The average family in the UK throws away 6 trees worth of paper every year.
+    - Paper and card account for 1/5 of all waste produced in the UK. However, paper remains one of the most recycled materials in the UK today.
+    - In Europe, paper is recycled on average 3.8 times, which is above the world average of 2.4 times.
+    - 55% of the fibre used by the European Paper Industry comes from recycled paper.
+    - Many types of plastics are recyclable.But it takes up to 500 years for plastic to fully decompose.
+    - We make and use 20 times more plastic today than we did 50 years ago.
+    - Plastic consumption grows by around 4% each year in Western Europe. That might not sound a lot, but it means that within 20 years we will have doubled our current plastic use.
+    - Every year, we throw away enough plastic to circle the world 5 times.
+    - Most UK households throw away at least 40kg of plastic each year. Enough to make 10 recycle bins. Just imagine how much waste businesses throw away, which is why commercial recycling bins are so important.
+    - Nationwide, we use 7.7 billion plastic bottles per year. That’s an average of 117 bottles per person, per year.
+    - Despite a ‘War on Plastic’ we recycle just 45% of plastics in the UK. That means 55% of all our plastic waste ends up in landfills, or indeed, the ocean.
+    - 8 million tonnes of the world’s plastics end up in our oceans each year, creating a garbage patch three times the size of France.
+    - Plastics from items such as carrier bags and bottles that end up in our oceans kill around 1,000,000 sea creatures every year.
+    - Plastic rubbish in the British countryside kills thousands of land animals every year.
+    - We generate around 5 million tonnes of plastic each year in the UK. That includes 15 million ‘single use’ plastic bottles per day.
+    - It takes one tonne of plastic to make 20,000 plastic bottles.
+    - Americans throw away 2,500,000 plastic bottles EVERY HOUR on average.
+    - Recycled plastic can be used to make clothing. You can make a t-shirt with 5 plastic bottles and an adults fleece jacket with just 25 plastic bottles.
+    - It takes one tonne of plastic to make 120,000 plastic carrier bags.
+    - We use 13 billion carrier bags in the UK each year. The majority of these plastic shopping bags are only used once and take up to 100 years to decompose.
+    - You could drive a car 11 metres on the oil it takes to make 1 plastic bag.
+    - Plastic bags are banned in many parts of Asia and Africa, and there are partial bans in other parts of the world.
+    - In 2015, the UK introduced a ‘5p carrier bag tax’ to reduce our plastic bag consumption. And it worked. We now use around 83% fewer single-use bags than we did in 2014.
+    - It takes a tonne of glass to make around 4000 bottles or jars.
+    - The average UK household uses 500 glass bottles and jars every year.
+    - Glass is 100% recyclable and can be reused over and over again, without losing quality.
+    - The UK recycles around 50% of its glass. While countries such as Finland and Switzerland recycle more than 90% of theirs.
+    - Glass does not decompose and so it puts a great strain on landfills.
+    - More than 28 billion glass bottles and jars end up in landfills every year, which is the equivalent to the Empire State Building filling up every 3 weeks.
+    - Milk bottles are used an average of 13 times before being recycled in the UK.
+    - It takes less energy to recycle glass than it does to make new glass from raw materials. In fact, the glass recycling level in the UK saves enough energy to launch 10 space shuttle missions.
+    - Every tonne of glass recycled saves 246 kg of CO2 emissions.
+    - Clear glass bottles contain around 25% recycled glass, whereas green bottles contain as much as 90% recycled glass.
+    - The UK has more than 50,000 bottle banks, and each bank is capable of holding 3,000 bottles, yet 5 out of every 6 glass bottles are thrown away.
+    - Our largest glass furnaces produce more a million glass bottles every day.
+    - A tonne of recycled glass saves over a tonne of natural resources.
+    - The average UK household throws away 20% of all food purchased.
+    - It is estimated that over 8 million people in the UK are struggling to afford to eat, yet UK households throw away around 7 million tonnes food every year. This equates to around £700 per household in food waste – an annual utility bill.
+    - Of the 7 million tonnes of food waste thrown away, 250,000 tonnes is perfectly edible and could be used to make up to 650 million meals for those in need.
+    - The average person throws away 74kg of food waste each year, the weight of over 1000 banana skins.
+    - Most of the food that ends up in landfills could be recycled to make animal feed, or even energy by converting the gas it releases into electricity and heat.
+    - At least 50% of food waste could be composted.
+    - Waste cooking oil is one of the most common causes of water pollution.
+    - 1 litre of used cooking oil can pollute up to 1 million litres of water drinking water.
+    - The UK throws away 1.4 million untouched bananas every day.
+    - The UK throws away 3 million unopened yoghurts each day.
+    - The UK throws away 600,000 whole uncooked eggs every day.
+    - The UK throws away 2 million untouched sausages every day.
+    - The UK throws away 20 million slices of bread every day.
+    - In the landfill, food waste releases methane, a damaging greenhouse gas.
+    - We can cut our CO2 emissions and reduce our carbon footprint by up to 25% by simply recycling or composting our food waste.
+    - We could feed over a billion hungry people with less than a quarter of the food wasted in the UK, the United States, and Europe.
+    - It is estimated that we waste more than 30% of all food produced globally.
+    - We use 25% of the worlds fresh water supply to grow food that we will send to the landfill.
+  m_categories: []

@@ -10,8 +10,11 @@ public class FTUEHighlightComponent : MonoBehaviour
     {
         m_highlightHolder.SetActive(false);
 
-        FTUEManager.Instance.OnSetFTUEHighlight -= ShowHighlight;
-        FTUEManager.Instance.OnSetFTUEHighlight += ShowHighlight;
+        if (FTUEManager.Instance != null)
+        {
+            FTUEManager.Instance.OnSetFTUEHighlight -= ShowHighlight;
+            FTUEManager.Instance.OnSetFTUEHighlight += ShowHighlight;
+        }
     }
 
     private void ShowHighlight(string stageID)

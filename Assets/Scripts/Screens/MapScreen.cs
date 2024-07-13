@@ -38,10 +38,6 @@ public class MapScreen : MonoBehaviour
         {
             Type = PopupType.LITTER_RECORDING,
             ShowCloseButton = true,
-            CloseResultActions = new System.Collections.Generic.Dictionary<string, System.Action>()
-            {
-                { LitterRecordingPopup.CLOSE_RESULT_ADD_LITTER, HandleCloseRecordingPopup }
-            }
         });
     }
 
@@ -51,23 +47,6 @@ public class MapScreen : MonoBehaviour
         {
             Type = PopupType.STATISTICS,
             ShowCloseButton = true,
-        });
-    }
-    private void HandleCloseRecordingPopup()
-    {
-        PopupManager.Instance.OpenPopup(new GenericInfoPopupData()
-        {
-            Type = PopupType.GENERIC_INFO,
-            ShowCloseButton = false,
-            BodyText = $"Thank you! Your litter has been recorded.\n\nTIP: {m_randomRecyclingInfoTextSelector.ChooseRandomText()}",
-            ButtonDatas = new PopupButtonData[]
-            {
-                new PopupButtonData()
-                {
-                    Text = "Continue",
-                    CloseOnClick = true
-                }
-            }
         });
     }
 }

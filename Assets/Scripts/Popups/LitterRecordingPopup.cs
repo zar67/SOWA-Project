@@ -7,6 +7,8 @@ public class LitterRecordingPopup : BasePopup
 {
     public const string CLOSE_RESULT_ADD_LITTER = "add_litter";
 
+    [SerializeField] private RandomTextScriptableObject m_randomRecyclingInfoTextSelector;
+
     [Header("Content References")]
     [SerializeField] private RectTransform m_content;
 
@@ -48,7 +50,29 @@ public class LitterRecordingPopup : BasePopup
         StatisticRecordingManager.Instance.RecordStatistics(m_currentTags.ToArray());
         Close(CLOSE_RESULT_ADD_LITTER);
 
+        string recyclingInfoCategory = RandomTextScriptableObject.DEFAULT_CATEGORY;
+        if (m_currentTags.Count >= 0)
+        {
+            string randomTag = m_currentTags[Random.Range(0, m_currentTags.Count)];
+            recyclingInfoCategory = m_tagsData.GetTagCategoryForTagID(randomTag).ID;
+        }
+
         m_currentTags = new List<string>();
+
+        PopupManager.Instance.OpenPopup(new GenericInfoPopupData()
+        {
+            Type = PopupType.GENERIC_INFO,
+            ShowCloseButton = false,
+            BodyText = $"Thank you! Your litter has been recorded.\n\nTIP: {m_randomRecyclingInfoTextSelector.ChooseRandomText(recyclingInfoCategory)}",
+            ButtonDatas = new PopupButtonData[]
+            {
+                new PopupButtonData()
+                {
+                    Text = "Continue",
+                    CloseOnClick = true
+                }
+            }
+        });
     }
 
     private void OpenTagManagementPopup()

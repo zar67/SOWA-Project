@@ -51,65 +51,6 @@ MonoBehaviour:
     - ID: Polyamide Nylon (PA)
       RecycleNumber: PA
       RecycleAbbreviation: 
-  - ID: Batteries
-    TagData:
-    - ID: Lead-Acid Battery
-      RecycleNumber: 08
-      RecycleAbbreviation: 
-    - ID: Alkaline Battery
-      RecycleNumber: 09
-      RecycleAbbreviation: 
-    - ID: Nickel-Cadmium Battery (NiCD)
-      RecycleNumber: 10
-      RecycleAbbreviation: 
-    - ID: Nickel-Metal Battery (NiMH)
-      RecycleNumber: 11
-      RecycleAbbreviation: 
-    - ID: Lithium Battery (Li)
-      RecycleNumber: 12
-      RecycleAbbreviation: 
-    - ID: Silver-Oxide Battery (SO(Z))
-      RecycleNumber: 13
-      RecycleAbbreviation: 
-    - ID: Zinc-Carbon Battery (CZ)
-      RecycleNumber: 14
-      RecycleAbbreviation: 
-  - ID: Paper
-    TagData:
-    - ID: Cardboard (PAP)
-      RecycleNumber: 20
-      RecycleAbbreviation: PAP
-    - ID: Paperboard (PAP)
-      RecycleNumber: 21
-      RecycleAbbreviation: PAP
-    - ID: Paper (PAP)
-      RecycleNumber: 22
-      RecycleAbbreviation: PAP
-  - ID: Metal
-    TagData:
-    - ID: Steel (FE)
-      RecycleNumber: 40
-      RecycleAbbreviation: FE
-    - ID: Aluminium (ALU)
-      RecycleNumber: 41
-      RecycleAbbreviation: ALU
-  - ID: Natural
-    TagData:
-    - ID: Wood (FOR)
-      RecycleNumber: 50
-      RecycleAbbreviation: FOR
-    - ID: Cork (FOR)
-      RecycleNumber: 51
-      RecycleAbbreviation: FOR
-    - ID: Cotton (TEX)
-      RecycleNumber: 60
-      RecycleAbbreviation: TEX
-    - ID: Jute (TEX)
-      RecycleNumber: 61
-      RecycleAbbreviation: TEX
-    - ID: Textiles (Other)
-      RecycleNumber: 62
-      RecycleAbbreviation: TEX
   - ID: Glass
     TagData:
     - ID: Clear Glass (GL)
@@ -151,4 +92,62 @@ MonoBehaviour:
     - ID: Gold Backed Glass (GL)
       RecycleNumber: 79
       RecycleAbbreviation: GL
-  m_tagsData: []
+  - ID: Metal
+    TagData:
+    - ID: Steel (FE)
+      RecycleNumber: 40
+      RecycleAbbreviation: FE
+    - ID: Aluminium (ALU)
+      RecycleNumber: 41
+      RecycleAbbreviation: ALU
+  - ID: Paper
+    TagData:
+    - ID: Cardboard (PAP)
+      RecycleNumber: 20
+      RecycleAbbreviation: PAP
+    - ID: Paperboard (PAP)
+      RecycleNumber: 21
+      RecycleAbbreviation: PAP
+    - ID: Paper (PAP)
+      RecycleNumber: 22
+      RecycleAbbreviation: PAP
+  - ID: Natural
+    TagData:
+    - ID: Wood (FOR)
+      RecycleNumber: 50
+      RecycleAbbreviation: FOR
+    - ID: Cork (FOR)
+      RecycleNumber: 51
+      RecycleAbbreviation: FOR
+    - ID: Cotton (TEX)
+      RecycleNumber: 60
+      RecycleAbbreviation: TEX
+    - ID: Jute (TEX)
+      RecycleNumber: 61
+      RecycleAbbreviation: TEX
+    - ID: Textiles (Other)
+      RecycleNumber: 62
+      RecycleAbbreviation: TEX
+  - ID: Batteries
+    TagData:
+    - ID: Lead-Acid Battery
+      RecycleNumber: 08
+      RecycleAbbreviation: 
+    - ID: Alkaline Battery
+      RecycleNumber: 09
+      RecycleAbbreviation: 
+    - ID: Nickel-Cadmium Battery (NiCD)
+      RecycleNumber: 10
+      RecycleAbbreviation: 
+    - ID: Nickel-Metal Battery (NiMH)
+      RecycleNumber: 11
+      RecycleAbbreviation: 
+    - ID: Lithium Battery (Li)
+      RecycleNumber: 12
+      RecycleAbbreviation: 
+    - ID: Silver-Oxide Battery (SO(Z))
+      RecycleNumber: 13
+      RecycleAbbreviation: 
+    - ID: Zinc-Carbon Battery (CZ)
+      RecycleNumber: 14
+      RecycleAbbreviation: 
