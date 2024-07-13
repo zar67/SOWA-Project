@@ -23,6 +23,16 @@ public class LitterHeatmapManager : MonoBehaviour
         m_material = m_meshRenderer.material;
     }
 
+    private void OnEnable()
+    {
+        SettingsPopup.OnHeatmapEnabledChanged += HandleHeatmapEnabledChanged;
+    }
+
+    private void OnDisable()
+    {
+        SettingsPopup.OnHeatmapEnabledChanged -= HandleHeatmapEnabledChanged;
+    }
+
     private void Update()
     {
         List<LitterData> cachedLitter = LitterRecordingManager.Instance.CondensedLitterData;
@@ -56,6 +66,11 @@ public class LitterHeatmapManager : MonoBehaviour
 
         m_material.SetFloatArray("_Hits", m_points);
         m_material.SetInt("_HitCount", hitPointCount);
+    }
+
+    private void HandleHeatmapEnabledChanged(bool enabled)
+    {
+        m_meshRenderer.gameObject.SetActive(enabled);
     }
 
     private bool IsInRange(Vector3 position)

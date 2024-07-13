@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class FTUEManager : SingletonMonoBehaviour<FTUEManager>
 {
-    private const string FTUE_PLAYER_PREFS_KEY = "LastFTUEStage";
     public const string FTUE_COMPLETED_VALUE = "Completed";
 
     [SerializeField] private FTUEStagesData m_stagesData;
@@ -15,7 +14,7 @@ public class FTUEManager : SingletonMonoBehaviour<FTUEManager>
 
     public void BeginFTUE()
     {
-        string currentStageID = PlayerPrefs.GetString(FTUE_PLAYER_PREFS_KEY, m_stagesData.GetStageAtIndex(0).ID);
+        string currentStageID = PlayerPrefs.GetString(PrefsKeys.CURRENT_FTUE_STAGE, m_stagesData.GetStageAtIndex(0).ID);
 
         if (currentStageID != FTUE_COMPLETED_VALUE)
         {
@@ -64,12 +63,12 @@ public class FTUEManager : SingletonMonoBehaviour<FTUEManager>
 
         if (hasNextStage)
         {
-            PlayerPrefs.SetString(FTUE_PLAYER_PREFS_KEY, nextFTUEStage.ID);
+            PlayerPrefs.SetString(PrefsKeys.CURRENT_FTUE_STAGE, nextFTUEStage.ID);
             LoadFTUEStage(nextFTUEStage.ID);
         }
         else
         {
-            PlayerPrefs.SetString(FTUE_PLAYER_PREFS_KEY, FTUE_COMPLETED_VALUE);
+            PlayerPrefs.SetString(PrefsKeys.CURRENT_FTUE_STAGE, FTUE_COMPLETED_VALUE);
         }
     }
 
