@@ -18,33 +18,17 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Zoe Rowbotham | Portfolio and Blog
+title: Clean Up App
 description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
-baseurl: "/Portfolio" # the subpath of your site, e.g. /blog
+  A litter recording and recycling information app.
+baseurl: "/SOWA-Project" # the subpath of your site, e.g. /blog
 url: "https://zar67.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 
 links:
-  - title: Projects
-    url:  /games.html
+  - title: Privacy Policy
+    url:  /privacy-policy.html
     icon: <i class="fas fa-gamepad nav-image"></i>
     external: false
-  - title: Devlogs
-    url:  /blog.html
-    icon: <i class="fas fa-comments nav-image"></i>
-    external: false
-  - title: CV
-    url: "/assets/CV.pdf"
-    icon: <i class="fas fa-pen-square nav-image"></i>
-    external: true
-
-collections:
-  games:
-    output: true
-  blogs:
-    output: true
 
 sass:
   sass_dir: _scss
