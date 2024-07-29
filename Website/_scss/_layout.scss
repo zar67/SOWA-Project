@@ -1,0 +1,472 @@
+/**
+ * Site header
+ */
+.site-header {
+    border-top: 5px solid $background-darker;
+    border-bottom: 1px solid $brand-color;
+    min-height: 56px;
+    width: 100%;
+    background-color: $background-darker;
+
+    // Positioning context for the mobile navigation icon
+    position: fixed;
+    z-index: 99999;
+
+    @include media-query($on-palm) {
+        display: block;
+        clear: both;
+        text-align: center;
+        
+        .nav-outer {
+            display: table;
+            margin: 0 auto;
+        }
+
+        .site-nav {
+            display: block;
+            justify-self: center;
+        }
+
+        li {
+            display: inline-block;
+            padding: 0 10px;
+        }
+
+        .site-title {
+            display: block;
+            float: none;
+            clear: both;
+            width: 100%;
+        }
+    }
+}
+
+.site-title {
+    text-transform: none;
+    font-weight: bold;
+    font-size: 30px;
+    padding: 0 20px;
+    color: $brand-color;
+    text-align: center;
+
+    line-height: 50px;
+    letter-spacing: -1px;
+    margin-bottom: 0;
+}
+
+.site-nav {
+    list-style: none;
+    line-height: 56px;
+    text-align: center;
+
+    li {
+        display: inline-block;
+        margin: 0 10px;
+    }
+
+    .page-link {
+        color: $text-color;
+        font-weight: bold;
+        font-size: 20px;
+        line-height: $base-line-height;
+        text-transform: uppercase;
+
+        &:hover {
+            color: $brand-color;
+            @include easeOut();
+        }
+    }
+}
+
+.page-link-name {
+    @include media-query($on-palm) {
+        display: none;
+    }
+}
+
+.sub-nav {
+    .sub-nav-content {
+        display: none;
+        position: absolute;
+        background: $background-color;
+        border: 2px solid $brand-color;
+        border-radius: 5px;
+        z-index: 1;
+        padding: 5px;
+    }
+
+    .sub-page-link {
+        display: none;
+        color: $text-color;
+        font-weight: bold;
+        font-size: 20px;
+        line-height: $base-line-height;
+
+        &:hover {
+            color: $brand-color;
+            @include easeOut();
+        }
+    }
+
+    &:hover .sub-nav-content {
+        display: block;
+    }
+
+    &:hover .sub-page-link {
+        display: block;
+    }
+}
+
+.contact-info {
+    text-align: center;
+}
+
+/**
+ * Site footer
+ */
+.site-footer {
+    text-align: center;
+    padding: 10px 0;
+    border-top: 2px solid $brand-color;
+}
+
+/**
+ * Page content
+ */
+.anchor {
+    display: block; 
+    position: relative; 
+    top: -68px; 
+    visibility: hidden;
+}
+
+.page-content {
+    padding: 20px 0;
+    padding-top: 125px;
+
+    h3 {
+        color: $brand-color;
+        font-weight: bold;
+    }
+
+    .iframe-container {
+        position: relative;
+        overflow: hidden;
+        width: 80%;
+        padding-top: 56.25%;
+        display: block;
+        margin: 5px auto;
+        z-index: 0;
+
+        iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+    }
+
+    img, video {
+        display: block;
+        margin: 5px auto;
+        width: 60%;
+    }
+}
+
+.page-heading {
+    font-weight: bold;
+    padding: 10px;
+    margin-top: 25px;
+    color: $brand-color;
+    background: $background-lighter;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 40px;
+}
+
+.post-category-list {
+    margin-left: 0;
+    list-style: none;
+    text-align: center;
+
+    > li {
+        margin: 0 20px;
+        margin-bottom: $spacing-unit;
+        display: inline-block;
+    }
+}
+
+.post-list {
+    margin-left: 0;
+    list-style: none;
+
+    > li {
+        margin-bottom: 10px;
+        border-bottom: 2px solid $background-lighter;
+    }
+}
+
+.blog-list {
+    margin-left: 0;
+    list-style: none;
+
+    > li {
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+        border-bottom: 2px solid $background-lighter;
+
+        img {
+            width: 30%;
+        }
+    }
+}
+
+.post-meta {
+    font-size: $base-font-size;
+    text-align: center;
+    color: $brand-color;
+    margin-bottom: 0;
+}
+
+.post-link {
+    text-transform: capitalize;
+    font-weight: bold;
+    display: inline;
+    font-size: 24px;
+}
+
+.post-date {
+    font-size: $base-font-size;
+    color: $background-lighter;
+    font-weight: bold;
+}
+
+.post-abstract {
+    margin-bottom: 10px;
+}
+
+/**
+ * Games
+ */
+
+.games {
+    .games-list {
+        list-style: none;
+
+        .games-container {
+            position: relative;
+            display: inline-block;
+            vertical-align: top;
+            min-width: 200px;
+            width: 30%;
+            margin: 5px;
+
+            &:hover {
+                .games-overlay {
+                    opacity: 1;
+                }
+
+                .games-image {
+                    opacity: 0.3;
+                    border-color: $brand-color;
+                    background-color: $brand-color;
+                    transition: .5s ease;
+                }
+            }
+        }
+
+        .games-image {
+            height: 100%;
+            width: 100%;
+
+            background-color: $background-lighter;
+            border: 4px solid $background-lighter;
+            border-radius: 20px;
+        }
+
+        .games-link {
+            display: block;
+            width: 100%;
+            height: 100%;
+
+            .games-overlay {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                height: 100%;
+                width: 100%;
+                opacity: 0;
+                transition: .5s ease;
+    
+                .games-heading {
+                    margin: 0;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    text-align: center;
+                    font-style: normal;
+                }
+            }
+        }
+    }
+
+    @include media-query($on-palm) {
+        display: block;
+        clear: both;
+        text-align: center;
+    
+        .games-list .games-container {
+            width: 55%;
+        }
+    }
+}
+
+.games-meta-date {
+    font-size: $small-font-size;
+    text-align: center;
+    font-weight: bold;
+    color: $text-color;
+    margin-bottom: 10px;
+}
+
+.games-tags {
+    text-align: center;
+    list-style-type: none;
+    font-size: 16px;
+    margin: 0;
+}
+
+.games-tag {
+    display: inline-block;
+    padding: 3px 8px;
+    margin: 3px 0;
+    border-radius: 5px;
+    background: $background-darker;
+}
+
+.games-heading {
+    height: 100%;
+    width: 100%;
+    color: $brand-color;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 10px;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+/**
+ * Posts
+ */
+.post-header {
+    margin-bottom: $spacing-unit;
+}
+
+.post-title {
+    font-weight: bold;
+    padding: 10px;
+    margin-bottom: 20px;
+    color: $brand-color;
+    background: $background-lighter;
+    border-radius: 20px;
+    text-transform: capitalize;
+    text-align: center;
+    font-size: 40px;
+
+    @include media-query($on-laptop) {
+        font-size: 36px;
+    }
+}
+
+.post-features {
+    width: 80%;
+    margin: 0 auto 20px 22%;
+    text-align: left;
+
+    a {
+        font-style: italic;
+        font-weight: bold;
+    }
+}
+
+.post-content {
+    margin-bottom: $spacing-unit;
+
+    p {
+        margin-bottom: 10px;
+    }
+
+    a {
+        font-style: italic;
+        font-weight: bold;
+    }
+
+    .caption {
+        display: block;
+        text-align: center;
+        margin-bottom: 10px;
+        font-style: italic;
+    }
+
+    h2 {
+        font-size: 32px;
+
+        @include media-query($on-laptop) {
+            font-size: 28px;
+        }
+    }
+
+    h3 {
+        font-size: 26px;
+
+        @include media-query($on-laptop) {
+            font-size: 22px;
+        }
+    }
+
+    h4 {
+        font-size: 20px;
+
+        @include media-query($on-laptop) {
+            font-size: 18px;
+        }
+    }
+
+    .iframe-container {
+        position: relative;
+        overflow: hidden;
+        width: 80%;
+        padding-top: 56.25%;
+        display: block;
+        margin: 5px auto;
+
+        iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+    }
+
+    img {
+        border-radius: 20px;
+        margin-bottom: 10px;
+        border: 5px solid $background-lighter;
+        display: block;
+        margin: 5px auto;
+        width: 60%;
+    }
+
+    video {
+        display: block;
+        margin: 5px auto;
+        width: 60%;
+    }
+}

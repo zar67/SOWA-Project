@@ -77,5 +77,4 @@ public class LitterHeatmapManager : MonoBehaviour
     {
         return position.magnitude <= m_maxDistance;
     }
-
 }
