@@ -1,5 +1,5 @@
 {
-  "name": "portfolio",
+  "name": "cleanup",
   "version": "1.0.0",
   "description": "",
   "main": "index.html",
@@ -9,12 +9,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zar67/Portfolio.git"
+    "url": "git+https://github.com/zar67/SOWA-Project.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/zar67/Portfolio/issues"
+    "url": "https://github.com/zar67/SOWA-Project/issues"
   },
   "homepage": "https://github.com/zar67/Portfolio#readme",
   "dependencies": {
