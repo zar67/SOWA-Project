@@ -13,7 +13,7 @@ dl, dd, ol, ul, figure {
 body {
   font: 400 18px/1.5 "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   color: #eeeeee;
-  background-color: #b97a69;
+  background-color: #3C816D;
   -webkit-text-size-adjust: 100%;
   -webkit-font-feature-settings: "kern" 1;
   -moz-font-feature-settings: "kern" 1;
@@ -62,7 +62,7 @@ li > ol {
 h1, h2, h3, h4, h5, h6 {
   margin-top: 12px;
   font-weight: 400;
-  color: #3C816D;
+  color: #fff;
   font-weight: bold; }
 
 /**
@@ -72,7 +72,7 @@ a {
   color: #eeeeee;
   text-decoration: none; }
   a:hover {
-    color: #3C816D;
+    color: #fff;
     transition: all 0.5s ease-out; }
 
 /**
@@ -94,7 +94,7 @@ blockquote {
 pre,
 code {
   font-size: 15px;
-  border: 2px solid #3C816D;
+  border: 2px solid #fff;
   border-radius: 10px; }
 
 code {
@@ -148,11 +148,11 @@ pre {
  * Site header
  */
 .site-header {
-  border-top: 5px solid #b67462;
-  border-bottom: 1px solid #3C816D;
+  border-top: 5px solid #397a67;
+  border-bottom: 1px solid #fff;
   min-height: 56px;
   width: 100%;
-  background-color: #b67462;
+  background-color: #397a67;
   position: fixed;
   z-index: 99999; }
   @media screen and (max-width: 650px) {
@@ -180,7 +180,7 @@ pre {
   font-weight: bold;
   font-size: 30px;
   padding: 0 20px;
-  color: #3C816D;
+  color: #fff;
   text-align: center;
   line-height: 50px;
   letter-spacing: -1px;
@@ -200,7 +200,7 @@ pre {
     line-height: 1.5;
     text-transform: uppercase; }
     .site-nav .page-link:hover {
-      color: #3C816D;
+      color: #fff;
       transition: all 0.5s ease-out; }
 
 @media screen and (max-width: 650px) {
@@ -210,8 +210,8 @@ pre {
 .sub-nav .sub-nav-content {
   display: none;
   position: absolute;
-  background: #b97a69;
-  border: 2px solid #3C816D;
+  background: #3C816D;
+  border: 2px solid #fff;
   border-radius: 5px;
   z-index: 1;
   padding: 5px; }
@@ -223,7 +223,7 @@ pre {
   font-size: 20px;
   line-height: 1.5; }
   .sub-nav .sub-page-link:hover {
-    color: #3C816D;
+    color: #fff;
     transition: all 0.5s ease-out; }
 
 .sub-nav:hover .sub-nav-content {
@@ -241,7 +241,7 @@ pre {
 .site-footer {
   text-align: center;
   padding: 10px 0;
-  border-top: 2px solid #3C816D; }
+  border-top: 2px solid #fff; }
 
 /**
  * Page content
@@ -256,7 +256,7 @@ pre {
   padding: 20px 0;
   padding-top: 125px; }
   .page-content h3 {
-    color: #3C816D;
+    color: #fff;
     font-weight: bold; }
   .page-content .iframe-container {
     position: relative;
@@ -282,8 +282,8 @@ pre {
   font-weight: bold;
   padding: 10px;
   margin-top: 25px;
-  color: #3C816D;
-  background: #bc8070;
+  color: #fff;
+  background: #3f8873;
   border-radius: 20px;
   text-align: center;
   font-size: 40px; }
@@ -302,7 +302,7 @@ pre {
   list-style: none; }
   .post-list > li {
     margin-bottom: 10px;
-    border-bottom: 2px solid #bc8070; }
+    border-bottom: 2px solid #3f8873; }
 
 .blog-list {
   margin-left: 0;
@@ -310,14 +310,14 @@ pre {
   .blog-list > li {
     padding-bottom: 10px;
     margin-bottom: 10px;
-    border-bottom: 2px solid #bc8070; }
+    border-bottom: 2px solid #3f8873; }
     .blog-list > li img {
       width: 30%; }
 
 .post-meta {
   font-size: 18px;
   text-align: center;
-  color: #3C816D;
+  color: #fff;
   margin-bottom: 0; }
 
 .post-link {
@@ -328,7 +328,7 @@ pre {
 
 .post-date {
   font-size: 18px;
-  color: #bc8070;
+  color: #3f8873;
   font-weight: bold; }
 
 .post-abstract {
@@ -350,14 +350,14 @@ pre {
       opacity: 1; }
     .games .games-list .games-container:hover .games-image {
       opacity: 0.3;
-      border-color: #3C816D;
-      background-color: #3C816D;
+      border-color: #fff;
+      background-color: #fff;
       transition: .5s ease; }
   .games .games-list .games-image {
     height: 100%;
     width: 100%;
-    background-color: #bc8070;
-    border: 4px solid #bc8070;
+    background-color: #3f8873;
+    border: 4px solid #3f8873;
     border-radius: 20px; }
   .games .games-list .games-link {
     display: block;
@@ -408,12 +408,12 @@ pre {
   padding: 3px 8px;
   margin: 3px 0;
   border-radius: 5px;
-  background: #b67462; }
+  background: #397a67; }
 
 .games-heading {
   height: 100%;
   width: 100%;
-  color: #3C816D;
+  color: #fff;
   border-radius: 20px;
   text-align: center;
   font-size: 10px;
@@ -430,8 +430,8 @@ pre {
   font-weight: bold;
   padding: 10px;
   margin-bottom: 20px;
-  color: #3C816D;
-  background: #bc8070;
+  color: #fff;
+  background: #3f8873;
   border-radius: 20px;
   text-transform: capitalize;
   text-align: center;
@@ -492,7 +492,7 @@ pre {
   .post-content img {
     border-radius: 20px;
     margin-bottom: 10px;
-    border: 5px solid #bc8070;
+    border: 5px solid #3f8873;
     display: block;
     margin: 5px auto;
     width: 60%; }
