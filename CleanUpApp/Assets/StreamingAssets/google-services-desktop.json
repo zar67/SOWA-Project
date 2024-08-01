@@ -8,22 +8,29 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:240739690995:android:9620c03c02222f00d54a86",
+        "mobilesdk_app_id": "1:240739690995:ios:bbc2c9e11a0778f7d54a86",
         "android_client_info": {
           "package_name": "com.ZoeRowbotham.CleanUp"
         }
       },
-      "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyBaIn9GxvLV-TtvJ6hCz1Nt9TMtCGGxhoA"
+          "current_key": "AIzaSyAafoMTqftjG0Tg2aiNDZaWvm7YZ0w0WFk"
         }
       ],
       "services": {
+        "analytics_service": {
+          "status": 0
+        },
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "status": 1
         }
-      }
+      },
+      "oauth_client": [
+        {
+          "client_id": "240739690995-3a3dfgo20s65atvrsltb1lh1m7jagekf.apps.googleusercontent.com"
+        }
+      ]
     }
   ],
   "configuration_version": "1"
