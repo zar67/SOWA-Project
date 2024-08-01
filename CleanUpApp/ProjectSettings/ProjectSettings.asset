@@ -159,6 +159,7 @@ PlayerSettings:
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
     Android: com.ZoeRowbotham.CleanUp
+    iPhone: com.ZoeRowbotham.CleanUp
   buildNumber:
     Standalone: 0
     VisionOS: 0
