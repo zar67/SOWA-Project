@@ -6,8 +6,9 @@
 	using UnityEngine;
 	using UnityEngine.EventSystems;
 	using System;
+    using Mapbox.Unity.Location;
 
-	public class QuadTreeCameraMovement : MonoBehaviour
+    public class QuadTreeCameraMovement : MonoBehaviour
 	{
 		[SerializeField]
 		[Range(1, 20)]
@@ -31,6 +32,8 @@
 		[SerializeField]
 		bool _useDegreeMethod;
 
+		private Vector2d _offset;
+
 		private Vector3 _origin;
 		private Vector3 _mousePosition;
 		private Vector3 _mousePositionPrevious;
@@ -44,12 +47,17 @@
 			if (null == _referenceCamera)
 			{
 				_referenceCamera = GetComponent<Camera>();
-				if (null == _referenceCamera) { Debug.LogErrorFormat("{0}: reference camera not set", this.GetType().Name); }
+				if (null == _referenceCamera)
+				{
+					Debug.LogErrorFormat("{0}: reference camera not set", this.GetType().Name);
+				}
 			}
 			_mapManager.OnInitialized += () =>
 			{
 				_isInitialized = true;
 			};
+
+			ResetMapController.RestMapClicked += () => _offset = Vector2d.zero;
 		}
 
 		public void Update()
@@ -80,6 +88,11 @@
 				{
 					HandleMouseAndKeyBoard();
 				}
+			}
+
+			if (Input.touchCount <= 0 && !Input.GetMouseButton(0) && Input.GetAxis("Mouse ScrollWheel") == 0 && _offset.x == 0 && _offset.y == 0)
+			{
+				_mapManager.UpdateMap(LocationProviderFactory.Instance.DefaultLocationProvider.CurrentLocation.LatitudeLongitude);
 			}
 		}
 
@@ -158,6 +171,8 @@
 
 				var latitudeLongitude = new Vector2d(_mapManager.CenterLatitudeLongitude.x + zMove * factor * 2.0f, _mapManager.CenterLatitudeLongitude.y + xMove * factor * 4.0f);
 
+				_offset = latitudeLongitude - LocationProviderFactory.Instance.DefaultLocationProvider.CurrentLocation.LatitudeLongitude;
+
 				_mapManager.UpdateMap(latitudeLongitude, _mapManager.Zoom);
 			}
 		}
@@ -223,6 +238,8 @@
 							var latlongDelta = Conversions.MetersToLatLon(new Vector2d(offset.x * factor, offset.z * factor));
 							var newLatLong = _mapManager.CenterLatitudeLongitude + latlongDelta;
 
+							_offset = newLatLong - LocationProviderFactory.Instance.DefaultLocationProvider.CurrentLocation.LatitudeLongitude;
+
 							_mapManager.UpdateMap(newLatLong, _mapManager.Zoom);
 						}
 					}
@@ -280,6 +297,9 @@
 							float factor = _panSpeed * Conversions.GetTileScaleInDegrees((float)_mapManager.CenterLatitudeLongitude.x, _mapManager.AbsoluteZoom) / _mapManager.UnityTileSize;
 
 							var latitudeLongitude = new Vector2d(_mapManager.CenterLatitudeLongitude.x + offset.z * factor, _mapManager.CenterLatitudeLongitude.y + offset.x * factor);
+
+							_offset = latitudeLongitude - LocationProviderFactory.Instance.DefaultLocationProvider.CurrentLocation.LatitudeLongitude;
+
 							_mapManager.UpdateMap(latitudeLongitude, _mapManager.Zoom);
 						}
 					}
