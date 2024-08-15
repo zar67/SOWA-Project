@@ -48,7 +48,7 @@ public class GenericInfoPopup : BasePopup
 
         for(int i = 0; i < m_buttons.Length; i++)
         {
-            bool isActive = i < infoData.ButtonDatas.Length;
+            bool isActive = infoData.ButtonDatas != null && i < infoData.ButtonDatas.Length;
 
             ButtonReference button = m_buttons[i];
 
