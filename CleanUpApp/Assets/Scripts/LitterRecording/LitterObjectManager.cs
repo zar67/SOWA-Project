@@ -17,6 +17,7 @@ public class LitterObjectManager : MonoBehaviour
     [SerializeField] private float m_mergedAmountScaleFactor = 0.5f;
 
     private bool m_locationPinsEnabled = true;
+    private int m_litterTimelineHours = 0;
 
     private Camera m_uiCamera;
     private List<LitterObject> m_litterObjects = new List<LitterObject>();
@@ -25,16 +26,19 @@ public class LitterObjectManager : MonoBehaviour
     {
         m_uiCamera = GameObject.FindGameObjectWithTag("UICamera").GetComponent<Camera>();
         m_locationPinsEnabled = PlayerPrefs.GetInt(PrefsKeys.LOCATION_PINS_ENABLED_KEY, 1) == 1;
+        m_litterTimelineHours = SettingsPopup.TIMELINE_HOURS[PlayerPrefs.GetInt(PrefsKeys.LITTER_TIMELINE_KEY, 2)];
     }
 
     private void OnEnable()
     {
         SettingsPopup.OnLocationPinsEnabledChanged += OnLocationPinsEnabledChanged;
+        SettingsPopup.OnLitterTimelineChanged += OnLitterTimelineChanged;
     }
 
     private void OnDisable()
     {
         SettingsPopup.OnLocationPinsEnabledChanged -= OnLocationPinsEnabledChanged;
+        SettingsPopup.OnLitterTimelineChanged -= OnLitterTimelineChanged;
     }
 
     private void Update()
@@ -49,14 +53,20 @@ public class LitterObjectManager : MonoBehaviour
         int objectCount = 0;
         for (int i = 0; i < cachedLitter.Count; i++)
         {
+            var litterData = new List<LitterData>();
+
             var location = new Vector2d();
             foreach (LitterData litter in cachedLitter[i])
             {
-                location += Conversions.StringToLatLon(litter.Location);
+                if (IsInTimeline(litter.Timestamp))
+                {
+                    location += Conversions.StringToLatLon(litter.Location);
+                    litterData.Add(litter);
+                }
             }
 
-            location.x /= cachedLitter[i].Count;
-            location.y /= cachedLitter[i].Count;
+            location.x /= litterData.Count;
+            location.y /= litterData.Count;
 
             Vector3 worldPosition = m_map.GeoToWorldPosition(location, false);
 
@@ -72,7 +82,7 @@ public class LitterObjectManager : MonoBehaviour
 
             m_litterObjects[objectCount].gameObject.SetActive(true);
             m_litterObjects[objectCount].transform.localPosition = worldPosition;
-            m_litterObjects[objectCount].SetData(cachedLitter[i]);
+            m_litterObjects[objectCount].SetData(litterData);
 
             objectCount++;
         }
@@ -96,9 +106,24 @@ public class LitterObjectManager : MonoBehaviour
         }
     }
 
+    private void OnLitterTimelineChanged(int hours)
+    {
+        m_litterTimelineHours = hours;
+    }
+
     private bool IsInRange(Vector3 position)
     {
         return position.magnitude <= m_maxDistance;
+    }
+
+    private bool IsInTimeline(string timestamp)
+    {
+        if (DateTime.TryParse(timestamp, out var time))
+        {
+            return (DateTime.UtcNow - time).TotalHours <= m_litterTimelineHours;
+        }
+
+        return false;
     }
 
     private void SpawnNewLitterObject()

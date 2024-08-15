@@ -38,6 +38,10 @@ MonoBehaviour:
     PopupType: 0
     Text: There is also a heatmap which shows the amount of litter collected in an
       area, this can also be turned on and off in settings.
+  - ID: timeline_settings
+    PopupType: 0
+    Text: In the settings you can also change what litter is shown to you by when
+      it was recorded.
   - ID: bin_recording
     PopupType: 0
     Text: Use this button to record any bins that are not located on the map, please

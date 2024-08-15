@@ -1,6 +1,7 @@
 using Mapbox.Unity.Map;
 using Mapbox.Unity.Utilities;
 using Mapbox.Utils;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -18,19 +19,31 @@ public class LitterHeatmapManager : MonoBehaviour
     private Material m_material;
     private float[] m_points;
 
+    private int m_litterTimelineHours = 0;
+
     private void Start()
     {
         m_material = m_meshRenderer.material;
+
+        m_meshRenderer.gameObject.SetActive(PlayerPrefs.GetInt(PrefsKeys.HEATMAP_ENABLED_KEY, 1) == 1);
+        m_litterTimelineHours = SettingsPopup.TIMELINE_HOURS[PlayerPrefs.GetInt(PrefsKeys.LITTER_TIMELINE_KEY, 2)];
     }
 
     private void OnEnable()
     {
         SettingsPopup.OnHeatmapEnabledChanged += HandleHeatmapEnabledChanged;
+        SettingsPopup.OnLitterTimelineChanged += OnLitterTimelineChanged;
     }
 
     private void OnDisable()
     {
         SettingsPopup.OnHeatmapEnabledChanged -= HandleHeatmapEnabledChanged;
+        SettingsPopup.OnLitterTimelineChanged -= OnLitterTimelineChanged;
+    }
+
+    private void OnLitterTimelineChanged(int hours)
+    {
+        m_litterTimelineHours = hours;
     }
 
     private void Update()
@@ -44,7 +57,7 @@ public class LitterHeatmapManager : MonoBehaviour
             Vector2d location = Conversions.StringToLatLon(cachedLitter[i].Location);
             Vector3 worldPosition = m_map.GeoToWorldPosition(location, false);
 
-            if (!IsInRange(worldPosition))
+            if (!IsInRange(worldPosition) || !IsInTimeline(cachedLitter[i].Timestamp))
             {
                 continue;
             }
@@ -77,4 +90,15 @@ public class LitterHeatmapManager : MonoBehaviour
     {
         return position.magnitude <= m_maxDistance;
     }
+
+    private bool IsInTimeline(string timestamp)
+    {
+        if (DateTime.TryParse(timestamp, out var time))
+        {
+            return (DateTime.UtcNow - time).TotalHours <= m_litterTimelineHours;
+        }
+
+        return false;
+    }
+
 }
