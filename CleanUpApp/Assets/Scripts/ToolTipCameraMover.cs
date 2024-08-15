@@ -1,5 +1,9 @@
+using Mapbox.Examples;
 using Mapbox.Unity.Map;
+using System;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class ToolTipCameraMover : MonoBehaviour
@@ -18,9 +22,24 @@ public class ToolTipCameraMover : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0) && Input.touchCount <= 1)
         {
-            LitterObject.ClearToolTip();
+            PointerEventData pointerData = new PointerEventData(EventSystem.current)
+            {
+                pointerId = -1,
+            };
+
+            pointerData.position = Input.mousePosition;
+
+            List<RaycastResult> results = new List<RaycastResult>();
+            EventSystem.current.RaycastAll(pointerData, results);
+
+            if (results.Count == 0 ||
+                (results[0].gameObject.layer != LayerMask.NameToLayer("LitterObject")))
+            {
+                LitterObject.ClearToolTip();
+                QuadTreeCameraMovement.FollowLocation = true;
+            }
         }
     }
 
@@ -30,6 +49,8 @@ public class ToolTipCameraMover : MonoBehaviour
         {
             return;
         }
+
+        QuadTreeCameraMovement.FollowLocation = false;
 
         var pos = m_map.WorldToGeoPosition(obj.transform.position);
         m_map.UpdateMap(pos, m_map.Zoom);

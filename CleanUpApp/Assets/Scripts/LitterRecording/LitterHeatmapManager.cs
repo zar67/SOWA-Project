@@ -35,7 +35,7 @@ public class LitterHeatmapManager : MonoBehaviour
 
     private void Update()
     {
-        List<LitterData> cachedLitter = LitterRecordingManager.Instance.CondensedLitterData;
+        List<LitterData> cachedLitter = LitterRecordingManager.Instance.FullLitterData;
 
         m_points = new float[3 * MAX_HIT_POINTS];
         int hitPointCount = 0;

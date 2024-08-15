@@ -51,7 +51,7 @@ public class LitterRecordingPopup : BasePopup
         Close(CLOSE_RESULT_ADD_LITTER);
 
         string recyclingInfoCategory = RandomTextScriptableObject.DEFAULT_CATEGORY;
-        if (m_currentTags.Count >= 0)
+        if (m_currentTags.Count > 0)
         {
             string randomTag = m_currentTags[Random.Range(0, m_currentTags.Count)];
             recyclingInfoCategory = m_tagsData.GetTagCategoryForTagID(randomTag).ID;

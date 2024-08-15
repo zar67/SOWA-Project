@@ -10,6 +10,8 @@
 
     public class QuadTreeCameraMovement : MonoBehaviour
 	{
+		public static bool FollowLocation = true;
+
 		[SerializeField]
 		[Range(1, 20)]
 		public float _panSpeed = 1.0f;
@@ -90,7 +92,7 @@
 				}
 			}
 
-			if (Input.touchCount <= 0 && !Input.GetMouseButton(0) && Input.GetAxis("Mouse ScrollWheel") == 0 && _offset.x == 0 && _offset.y == 0)
+			if (FollowLocation && Input.touchCount <= 0 && !Input.GetMouseButton(0) && Input.GetAxis("Mouse ScrollWheel") == 0 && _offset.x == 0 && _offset.y == 0)
 			{
 				_mapManager.UpdateMap(LocationProviderFactory.Instance.DefaultLocationProvider.CurrentLocation.LatitudeLongitude);
 			}

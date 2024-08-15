@@ -26,7 +26,7 @@ public class LitterRecordingManager : SingletonMonoBehaviour<LitterRecordingMana
 
     public List<LitterData> FullLitterData { get; private set; } = new List<LitterData>();
 
-    public List<LitterData> CondensedLitterData { get; private set; }  = new List<LitterData>();
+    public List<List<LitterData>> CondensedLitterData { get; private set; }  = new List<List<LitterData>>();
 
     private void OnEnable()
     {
@@ -82,7 +82,7 @@ public class LitterRecordingManager : SingletonMonoBehaviour<LitterRecordingMana
     {
         var dataDict = args.Snapshot.Value as Dictionary<string, object>;
         FullLitterData = new List<LitterData>();
-        CondensedLitterData = new List<LitterData>();
+        CondensedLitterData = new List<List<LitterData>>();
 
         var distanceCheckList = new List<object>(dataDict.Values);
 
@@ -100,30 +100,34 @@ public class LitterRecordingManager : SingletonMonoBehaviour<LitterRecordingMana
     private void UpdateCondensedLitterList()
     {
         var distanceCheckList = new List<LitterData>(FullLitterData);
+        var handledLitter = new List<LitterData>();
 
-        CondensedLitterData = new List<LitterData>();
+        CondensedLitterData = new List<List<LitterData>>();
         for (int i = 0; i < distanceCheckList.Count; i++)
         {
+            if (handledLitter.Contains(distanceCheckList[i]))
+            {
+                continue;
+            }
+
             Vector2d location = Conversions.StringToLatLon(distanceCheckList[i].Location);
-            bool merged = false;
+
+            var mergedLitter = new List<LitterData>() { distanceCheckList[i] };
+            handledLitter.Add(distanceCheckList[i]);
             if (i < distanceCheckList.Count - 1)
             {
                 for (int j = i + 1; j < distanceCheckList.Count; j++)
                 {
                     Vector2d compareLocation = Conversions.StringToLatLon(distanceCheckList[j].Location);
-                    if (Vector2d.Distance(location, compareLocation) < m_currentMergeDistance)
+                    if (Vector2d.Distance(location, compareLocation) < m_currentMergeDistance && !handledLitter.Contains(distanceCheckList[j]))
                     {
-                        merged = true;
-                        distanceCheckList[j] = distanceCheckList[i].Merge(distanceCheckList[j]);
-                        break;
+                        mergedLitter.Add(distanceCheckList[j]);
+                        handledLitter.Add(distanceCheckList[j]);
                     }
                 }
             }
 
-            if (!merged)
-            {
-                CondensedLitterData.Add(distanceCheckList[i]);
-            }
+            CondensedLitterData.Add(mergedLitter);
         }
     }
 }
