@@ -34,8 +34,7 @@ public class ToolTipCameraMover : MonoBehaviour
             List<RaycastResult> results = new List<RaycastResult>();
             EventSystem.current.RaycastAll(pointerData, results);
 
-            if (results.Count == 0 ||
-                (results[0].gameObject.layer != LayerMask.NameToLayer("LitterObject")))
+            if (results.Count == 0 || results[0].gameObject.GetComponentInParent<LitterObject>() == null)
             {
                 LitterObject.ClearToolTip();
                 QuadTreeCameraMovement.FollowLocation = true;
