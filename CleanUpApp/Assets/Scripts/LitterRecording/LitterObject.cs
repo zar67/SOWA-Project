@@ -69,7 +69,7 @@ public class LitterObject : MonoBehaviour
 
     private void UpdateDisplay(LitterData litter)
     {
-        m_timestampText.text = litter.Timestamp.ToString();
+        m_timestampText.text = litter.Timestamp;
 
         m_tagsHolder.DestroyChildren();
         foreach (string tag in litter.Tags)
