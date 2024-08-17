@@ -63,10 +63,6 @@ public class LitterObject : MonoBehaviour
         m_data = data;
         m_text.text = data.Count.ToString();
 
-        m_currentDisplayIndex = 0;
-
-        UpdateDisplay(data[0]);
-
         m_leftButton.gameObject.SetActive(data.Count > 1);
         m_rightButton.gameObject.SetActive(data.Count > 1);
     }
@@ -115,6 +111,11 @@ public class LitterObject : MonoBehaviour
     private void HandleLitterObjectClicked(LitterObject obj)
     {
         m_toolTipHolder.SetActive(obj == this);
+        if (obj == this)
+        {
+            m_currentDisplayIndex = 0;
+            UpdateDisplay(m_data[m_currentDisplayIndex]);
+        }
     }
 
     private IEnumerator RefreshTagsLayout()
