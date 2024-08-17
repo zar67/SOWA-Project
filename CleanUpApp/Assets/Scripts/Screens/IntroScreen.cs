@@ -4,7 +4,6 @@ using UnityEngine.Android;
 #endif
 
 #if UNITY_IOS
-using UnityEngine.iOS;
 using System.Collections;
 #endif
 
@@ -15,7 +14,7 @@ using TMPro;
 
 public class IntroScreen : MonoBehaviour
 {
-    private const float MIN_LOAD_TIME = 2f;
+    private const float MIN_LOAD_TIME = 4f;
 
     [SerializeField] private string m_mapSceneName;
     [SerializeField] private GameObject m_tapToContinueHolder;

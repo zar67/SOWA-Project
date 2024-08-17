@@ -7,6 +7,7 @@
 	using UnityEngine.EventSystems;
 	using System;
     using Mapbox.Unity.Location;
+    using System.Collections;
 
     public class QuadTreeCameraMovement : MonoBehaviour
 	{
@@ -60,6 +61,19 @@
 			};
 
 			ResetMapController.RestMapClicked += () => _offset = Vector2d.zero;
+
+			StartCoroutine(LoadMapAtZooms());
+		}
+
+		private IEnumerator LoadMapAtZooms()
+		{
+			for (int i = (int)_minZoom; i < _maxZoom / 2; i++)
+			{
+				_mapManager.SetZoom(i);
+				yield return new WaitForSeconds(0.5f);
+			}
+
+			_mapManager.SetZoom(14);
 		}
 
 		public void Update()
