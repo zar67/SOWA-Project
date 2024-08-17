@@ -3,6 +3,7 @@ using Mapbox.Unity.Utilities;
 using Mapbox.Utils;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using UnityEngine;
 
 public class LitterHeatmapManager : MonoBehaviour
@@ -93,12 +94,11 @@ public class LitterHeatmapManager : MonoBehaviour
 
     private bool IsInTimeline(string timestamp)
     {
-        if (DateTime.TryParseExact(timestamp, "DD/MM/YYYY HH:mm:ss", null, System.Globalization.DateTimeStyles.AssumeUniversal, out var time))
+        if (DateTime.TryParse(timestamp, null, DateTimeStyles.AssumeUniversal, out var time))
         {
             return (DateTime.UtcNow - time).TotalHours <= m_litterTimelineHours;
         }
 
         return false;
     }
-
 }
