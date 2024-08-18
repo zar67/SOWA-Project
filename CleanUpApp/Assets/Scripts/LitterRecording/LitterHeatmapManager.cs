@@ -94,7 +94,7 @@ public class LitterHeatmapManager : MonoBehaviour
 
     private bool IsInTimeline(string timestamp)
     {
-        if (DateTime.TryParse(timestamp, null, DateTimeStyles.AssumeUniversal, out var time))
+        if (DateTime.TryParseExact(timestamp, "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture, DateTimeStyles.AssumeUniversal, out var time))
         {
             return (DateTime.UtcNow - time).TotalHours <= m_litterTimelineHours;
         }

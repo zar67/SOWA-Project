@@ -71,7 +71,7 @@ public class LitterObject : MonoBehaviour
     private void UpdateDisplay(LitterData litter)
     {
         string timeText = string.Empty;
-        if (DateTime.TryParse(litter.Timestamp, null, DateTimeStyles.AssumeUniversal, out var time))
+        if (DateTime.TryParseExact(litter.Timestamp, "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture, DateTimeStyles.AssumeUniversal, out var time))
         {
             double timespan = (DateTime.UtcNow - time).TotalHours;
             timeText = $"{time} ({Mathf.FloorToInt((float)timespan)} hours ago)";
