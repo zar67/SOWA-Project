@@ -70,7 +70,7 @@ public class LitterRecordingManager : SingletonMonoBehaviour<LitterRecordingMana
 
         var data = new LitterData()
         {
-            Timestamp = DateTime.UtcNow.ToString("DD/MM/YYYY HH:mm:ss"),
+            Timestamp = DateTime.UtcNow.ToString("dd/MM/yyyy HH:mm:ss"),
             Location = $"{currentLocation.LatitudeLongitude.x},{currentLocation.LatitudeLongitude.y}",
             Tags = tags
         };

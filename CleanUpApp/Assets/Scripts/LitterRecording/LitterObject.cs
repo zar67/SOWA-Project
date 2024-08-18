@@ -2,6 +2,7 @@ using Extensions;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -69,7 +70,14 @@ public class LitterObject : MonoBehaviour
 
     private void UpdateDisplay(LitterData litter)
     {
-        m_timestampText.text = litter.Timestamp;
+        string timeText = string.Empty;
+        if (DateTime.TryParse(litter.Timestamp, null, DateTimeStyles.AssumeUniversal, out var time))
+        {
+            double timespan = (DateTime.UtcNow - time).TotalHours;
+            timeText = $"{time} ({Mathf.FloorToInt((float)timespan)} hours ago)";
+        }
+
+        m_timestampText.text = timeText;
 
         m_tagsHolder.DestroyChildren();
         foreach (string tag in litter.Tags)
@@ -132,5 +140,7 @@ public class LitterObject : MonoBehaviour
         {
             layoutGroup.enabled = true;
         }
+
+        Canvas.ForceUpdateCanvases();
     }
 }
