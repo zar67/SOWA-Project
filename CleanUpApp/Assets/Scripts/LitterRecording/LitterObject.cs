@@ -73,8 +73,7 @@ public class LitterObject : MonoBehaviour
         string timeText = string.Empty;
         if (DateTime.TryParseExact(litter.Timestamp, "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture, DateTimeStyles.AssumeUniversal, out var time))
         {
-            double timespan = (DateTime.UtcNow - time).TotalHours;
-            timeText = $"{time} ({Mathf.FloorToInt((float)timespan)} hours ago)";
+            timeText = time.ToLocalTime().ToString("dd/MM/yyyy HH:mm");
         }
 
         m_timestampText.text = timeText;

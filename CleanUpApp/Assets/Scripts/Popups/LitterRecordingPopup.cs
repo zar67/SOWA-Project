@@ -32,6 +32,7 @@ public class LitterRecordingPopup : BasePopup
         TagObject.AddTagClicked += HandleTagAdded;
         TagObject.RemoveTagClicked += HandleTagRemoved;
 
+        m_currentTags = new List<string>();
         m_totalTagsText.text = $"0 Selected";
     }
 
