@@ -13,13 +13,13 @@ public class LitterObject : MonoBehaviour
 
     [SerializeField] private Button m_button;
     [SerializeField] private TextMeshProUGUI m_text;
+    [SerializeField] private GameObject m_noTagsHolder;
 
     [SerializeField] private GameObject m_toolTipHolder;
     [SerializeField] private TextMeshProUGUI m_timestampText;
 
     [SerializeField] private TagsData m_tagsData;
     [SerializeField] private TagObject m_tagPrefab;
-    [SerializeField] private LayoutGroup[] m_tagsLayoutGroups;
     [SerializeField] private Transform m_tagsHolder;
 
     [SerializeField] private Button m_leftButton;
@@ -63,9 +63,6 @@ public class LitterObject : MonoBehaviour
     {
         m_data = data;
         m_text.text = data.Count.ToString();
-
-        m_leftButton.gameObject.SetActive(data.Count > 1);
-        m_rightButton.gameObject.SetActive(data.Count > 1);
     }
 
     private void UpdateDisplay(LitterData litter)
@@ -85,7 +82,10 @@ public class LitterObject : MonoBehaviour
             newTag.PopulateTag(m_tagsData.GetDataForTagID(tag));
         }
 
-        RefreshTagsLayout();
+        m_noTagsHolder.SetActive(litter.Tags.Length == 0);
+
+        m_leftButton.interactable = m_currentDisplayIndex > 0;
+        m_rightButton.interactable = m_currentDisplayIndex < m_data.Count - 1;
     }
 
     private void HandleButtonClicked()
@@ -93,23 +93,23 @@ public class LitterObject : MonoBehaviour
         OnLitterButtonClicked?.Invoke(this);
     }
 
-    private void HandleLeftClicked()
+    private void HandleRightClicked()
     {
         m_currentDisplayIndex++;
         if (m_currentDisplayIndex >= m_data.Count)
         {
-            m_currentDisplayIndex = 0;
+            m_currentDisplayIndex = m_data.Count - 1;
         }
 
         UpdateDisplay(m_data[m_currentDisplayIndex]);
     }
 
-    private void HandleRightClicked()
+    private void HandleLeftClicked()
     {
         m_currentDisplayIndex--;
         if (m_currentDisplayIndex < 0)
         {
-            m_currentDisplayIndex = m_data.Count - 1;
+            m_currentDisplayIndex = 0;
         }
 
         UpdateDisplay(m_data[m_currentDisplayIndex]);
@@ -123,23 +123,5 @@ public class LitterObject : MonoBehaviour
             m_currentDisplayIndex = 0;
             UpdateDisplay(m_data[m_currentDisplayIndex]);
         }
-    }
-
-    private IEnumerator RefreshTagsLayout()
-    {
-        foreach (LayoutGroup layoutGroup in m_tagsLayoutGroups)
-        {
-            layoutGroup.enabled = false;
-        }
-
-        yield return new WaitForEndOfFrame();
-        yield return new WaitForEndOfFrame();
-
-        foreach (LayoutGroup layoutGroup in m_tagsLayoutGroups)
-        {
-            layoutGroup.enabled = true;
-        }
-
-        Canvas.ForceUpdateCanvases();
     }
 }
