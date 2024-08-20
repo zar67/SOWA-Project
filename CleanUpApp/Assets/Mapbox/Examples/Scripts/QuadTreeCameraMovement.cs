@@ -78,6 +78,11 @@
 
 		public void Update()
 		{
+			if (PopupManager.Instance.HasOpenPopup())
+			{
+				return;
+			}
+
 			if (Input.GetMouseButtonDown(0) && EventSystem.current.IsPointerOverGameObject())
 			{
 				_dragStartedOnUI = true;
