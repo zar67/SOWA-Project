@@ -12,7 +12,6 @@ public enum PopupType
     STATISTICS,
     FTUE_INFO,
     TAG_MANAGEMENT,
-    LITTER_OBJECT,
 }
 
 public class PopupManager : SingletonMonoBehaviour<PopupManager>
