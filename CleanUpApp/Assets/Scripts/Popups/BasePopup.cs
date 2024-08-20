@@ -38,6 +38,7 @@ public class BasePopup : MonoBehaviour
     [Header("Close Button References")]
     [SerializeField] protected GameObject m_closeButtonHolder;
     [SerializeField] protected Button m_closeButton;
+    [SerializeField] protected Button m_interactBlockerButton;
 
     protected event Action OnOpenStarted;
     protected event Action OnOpenComplete;
@@ -73,8 +74,11 @@ public class BasePopup : MonoBehaviour
 
         if (data.ShowCloseButton)
         {
+
             m_closeButton.onClick.AddListener(() => Close(CLOSE_RESULT_CLOSE_BUTTON));
         }
+
+        m_interactBlockerButton.onClick.AddListener(() => Close(CLOSE_RESULT_CLOSE_BUTTON));
     }
 
     public virtual void Open()
@@ -121,6 +125,7 @@ public class BasePopup : MonoBehaviour
 
         m_closeButtonHolder.SetActive(false);
         m_closeButton.onClick.RemoveAllListeners();
+        m_interactBlockerButton.onClick.RemoveAllListeners();
 
         CurrentState = PopupState.CLOSED;
     }

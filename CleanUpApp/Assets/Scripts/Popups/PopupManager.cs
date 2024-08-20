@@ -1,6 +1,7 @@
 using Extensions;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public enum PopupType
 {
@@ -145,5 +146,5 @@ public class PopupManager : SingletonMonoBehaviour<PopupManager>
         }
 
         m_closedPopups[popup.Type].Add(popup);
-    }   
+    }
 }
